@@ -1,0 +1,2375 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mestra Lin — 100 Receitas Tradicionais da Medicina Chinesa</title>
+  <meta name="description" content="100 receitas tradicionais inspiradas na Medicina Chinesa, reunidas pela Mestra Lin, para você aliviar o inchaço, melhorar a digestão, ganhar disposição e voltar a dormir a noite inteira.">
+  <meta property="og:title" content="Mestra Lin — 100 Receitas Tradicionais">
+  <meta property="og:description" content="100 receitas tradicionais da Medicina Chinesa para desinchar, melhorar a digestão e dormir a noite toda.">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts: Fraunces, Work Sans, Noto Serif SC -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..800;1,9..144,400..800&family=Noto+Serif+SC:wght@700&family=Work+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+
+  <style>
+    /* -------------------------------------------------------------
+       1. CSS CUSTOM PROPERTIES (DESIGN TOKENS)
+       ------------------------------------------------------------- */
+    :root {
+      --paper: #F6F1E4;
+      --paper-2: #EFE7D2;
+      --ink: #20261F;
+      --ink-soft: #333B30;
+      --jade: #3E6259;
+      --jade-deep: #1D3A32;
+      --cinnabar: #B23A2E;
+      --cinnabar-deep: #8C2C22;
+      --gold: #B8912F;
+      --muted: #6B6350;
+      --line: #DCD3BB;
+      
+      --font-display: 'Fraunces', Georgia, serif;
+      --font-body: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-seal: 'Noto Serif SC', serif;
+    }
+
+    /* -------------------------------------------------------------
+       2. RESET & BASE STYLES
+       ------------------------------------------------------------- */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--paper);
+      color: var(--ink);
+      line-height: 1.6;
+      font-size: 16px;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    ::selection {
+      background-color: var(--cinnabar);
+      color: #FFF;
+    }
+
+    /* Subtle Grain Noise Layer */
+    .grain-layer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.045;
+      mix-blend-mode: multiply;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    }
+
+    /* Container */
+    .container {
+      width: 100%;
+      max-width: 1140px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    /* Typography */
+    h1, h2, h3, h4 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.2;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 0.8125rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Signature Chinese Seal (Stamp) */
+    .seal {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--cinnabar);
+      color: #FDFBF7;
+      border-radius: 9999px;
+      font-family: var(--font-seal);
+      font-weight: 700;
+      line-height: 1;
+      user-select: none;
+      box-shadow: 0 2px 6px rgba(178, 58, 46, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+    }
+
+    /* Primary CTA Button */
+    .btn-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background-color: var(--cinnabar);
+      color: #FDFBF7;
+      font-weight: 700;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+      box-shadow: 0 4px 14px rgba(178, 58, 46, 0.28);
+    }
+
+    .btn-cta:hover {
+      background-color: var(--cinnabar-deep);
+      box-shadow: 0 6px 20px rgba(178, 58, 46, 0.38);
+    }
+
+    .btn-cta:active {
+      transform: translateY(1px);
+    }
+
+    /* Pulse Glow Animation */
+    @keyframes pulseGlow {
+      0%, 100% {
+        box-shadow: 0 4px 16px rgba(178, 58, 46, 0.32);
+      }
+      50% {
+        box-shadow: 0 6px 26px rgba(178, 58, 46, 0.52);
+      }
+    }
+
+    .pulse-glow {
+      animation: pulseGlow 3s infinite ease-in-out;
+    }
+
+    /* -------------------------------------------------------------
+       3. HEADER
+       ------------------------------------------------------------- */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background-color: rgba(246, 241, 228, 0.92);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .header-inner {
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .brand-logo .seal {
+      width: 38px;
+      height: 38px;
+      font-size: 1.25rem;
+    }
+
+    .brand-name {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1;
+    }
+
+    .brand-tagline {
+      display: block;
+      font-size: 0.6875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      font-weight: 600;
+      margin-top: 3px;
+    }
+
+    .btn-header {
+      padding: 10px 20px;
+      font-size: 0.875rem;
+    }
+
+    /* -------------------------------------------------------------
+       4. HERO SECTION
+       ------------------------------------------------------------- */
+    .hero-section {
+      padding-top: 48px;
+      padding-bottom: 72px;
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .hero-h1 {
+      font-size: 2.25rem;
+      line-height: 1.18;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-h1 .highlight {
+      font-style: italic;
+      color: var(--cinnabar);
+      font-weight: 500;
+    }
+
+    .hero-sub {
+      margin-top: 20px;
+      font-size: 1.0625rem;
+      color: var(--ink-soft);
+      line-height: 1.65;
+    }
+
+    .hero-pains {
+      list-style: none;
+      margin-top: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .hero-pains li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.9375rem;
+      color: var(--ink);
+    }
+
+    .hero-pains .arrow {
+      color: var(--cinnabar);
+      font-weight: 700;
+      font-size: 1.125rem;
+      line-height: 1;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    .hero-actions {
+      margin-top: 36px;
+    }
+
+    .hero-btn {
+      padding: 16px 32px;
+      font-size: 1.0625rem;
+      width: 100%;
+      max-width: 380px;
+    }
+
+    .trust-row {
+      margin-top: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px 16px;
+      font-size: 0.8125rem;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .trust-row .check {
+      color: var(--jade);
+      font-weight: 700;
+    }
+
+    .hero-visual {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      max-width: 420px;
+      margin: 0 auto;
+    }
+
+    .hero-frame {
+      position: relative;
+      background-color: var(--paper-2);
+      border: 1px solid var(--line);
+      padding: 10px;
+      border-radius: 6px;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08);
+      width: 100%;
+    }
+
+    .hero-frame img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 4px;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+    }
+
+    .floating-badge {
+      position: absolute;
+      bottom: -20px;
+      left: -12px;
+      background-color: var(--paper);
+      border: 1px solid var(--line);
+      padding: 14px 18px;
+      border-radius: 6px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      max-width: 280px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .badge-number {
+      font-family: var(--font-display);
+      font-size: 2.75rem;
+      font-weight: 700;
+      color: var(--cinnabar);
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .badge-text {
+      font-size: 0.8125rem;
+      line-height: 1.35;
+      color: var(--ink-soft);
+      font-weight: 500;
+    }
+
+    /* -------------------------------------------------------------
+       5. MARQUEE TICKER (FAIXA DE PROVA SOCIAL)
+       ------------------------------------------------------------- */
+    .marquee-wrapper {
+      background-color: var(--jade-deep);
+      color: var(--paper);
+      padding: 14px 0;
+      overflow: hidden;
+      border-top: 1px solid rgba(62, 98, 89, 0.5);
+      border-bottom: 1px solid rgba(62, 98, 89, 0.5);
+      user-select: none;
+    }
+
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: marqueeAnim 24s linear infinite;
+    }
+
+    .marquee-track:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes marqueeAnim {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .marquee-group {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      padding-right: 40px;
+      flex-shrink: 0;
+    }
+
+    .marquee-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.9375rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+    }
+
+    .marquee-item .seal-char {
+      font-family: var(--font-seal);
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    /* -------------------------------------------------------------
+       6. PAIN AGITATION (SEÇÃO DE AGITAÇÃO DA DOR)
+       ------------------------------------------------------------- */
+    .agitation-section {
+      background-color: var(--ink);
+      color: var(--paper);
+      padding: 80px 0;
+    }
+
+    .agitation-header {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 56px auto;
+    }
+
+    .agitation-header .eyebrow {
+      color: var(--gold);
+    }
+
+    .agitation-header h2 {
+      color: var(--paper);
+      font-size: 2rem;
+    }
+
+    .agitation-header p {
+      color: rgba(220, 211, 187, 0.85);
+      margin-top: 16px;
+      font-size: 1rem;
+    }
+
+    .cards-grid-3 {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    .agitation-card {
+      background-color: rgba(29, 58, 50, 0.35);
+      border: 1px solid rgba(62, 98, 89, 0.6);
+      padding: 28px;
+      border-radius: 4px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .agitation-card .num {
+      font-family: var(--font-display);
+      font-size: 2.75rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 14px;
+    }
+
+    .agitation-card h3 {
+      color: var(--paper);
+      font-size: 1.1875rem;
+      margin-bottom: 10px;
+    }
+
+    .agitation-card p {
+      color: rgba(220, 211, 187, 0.8);
+      font-size: 0.9375rem;
+      line-height: 1.6;
+    }
+
+    .agitation-quote {
+      margin-top: 56px;
+      padding-top: 36px;
+      border-top: 1px solid rgba(62, 98, 89, 0.4);
+      text-align: center;
+      max-width: 760px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .agitation-quote p {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.125rem;
+      line-height: 1.65;
+      color: rgba(246, 241, 228, 0.95);
+    }
+
+    /* -------------------------------------------------------------
+       7. INSIDE THE BOOK (DENTRO DO LIVRO)
+       ------------------------------------------------------------- */
+    .inside-section {
+      padding: 80px 0;
+      background-color: var(--paper);
+    }
+
+    .inside-header {
+      max-width: 760px;
+      margin-bottom: 48px;
+    }
+
+    .inside-header .eyebrow {
+      color: var(--jade);
+    }
+
+    .inside-header h2 {
+      font-size: 2rem;
+    }
+
+    .inside-header p {
+      margin-top: 14px;
+      color: var(--ink-soft);
+      font-size: 1rem;
+    }
+
+    .grid-2x2 {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    .inside-card {
+      background-color: var(--paper-2);
+      border: 1px solid var(--line);
+      padding: 32px;
+      border-radius: 4px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .inside-card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+      gap: 8px;
+    }
+
+    .inside-card-top .chapter-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background-color: var(--jade-deep);
+      color: var(--paper);
+      padding: 4px 10px;
+      border-radius: 3px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .inside-card-top .chapter-pill span {
+      color: var(--gold);
+    }
+
+    .inside-card-top .tag-pill {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      padding: 3px 8px;
+      background-color: var(--paper);
+      color: var(--jade);
+      border-radius: 3px;
+      border: 1px solid var(--line);
+      white-space: nowrap;
+    }
+
+    .inside-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      line-height: 1.35;
+    }
+
+    .inside-card p {
+      color: var(--ink-soft);
+      font-size: 0.9375rem;
+      line-height: 1.6;
+    }
+
+    .inside-card-footer {
+      margin-top: 24px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(220, 211, 187, 0.8);
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--jade);
+    }
+
+    /* -------------------------------------------------------------
+       8. WHO TEACHES (QUEM ENSINA)
+       ------------------------------------------------------------- */
+    .teacher-section {
+      background-color: var(--paper-2);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 80px 0;
+    }
+
+    .teacher-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .teacher-visual {
+      position: relative;
+      max-width: 360px;
+      margin: 0 auto;
+    }
+
+    .teacher-frame {
+      background-color: var(--paper);
+      border: 1px solid var(--line);
+      padding: 10px;
+      border-radius: 4px;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08);
+    }
+
+    .teacher-frame img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 3px;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+    }
+
+    .teacher-seal-badge {
+      position: absolute;
+      bottom: -16px;
+      right: -16px;
+      width: 56px;
+      height: 56px;
+      font-size: 1.75rem;
+      border: 2px solid var(--paper);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    .teacher-content .eyebrow {
+      color: var(--jade);
+    }
+
+    .teacher-content h2 {
+      font-size: 2rem;
+      margin-bottom: 24px;
+    }
+
+    .teacher-content p {
+      font-size: 0.9375rem;
+      color: var(--ink-soft);
+      line-height: 1.7;
+      margin-bottom: 18px;
+    }
+
+    .teacher-quote {
+      margin: 24px 0;
+      padding: 14px 20px;
+      border-left: 4px solid var(--gold);
+      background-color: rgba(246, 241, 228, 0.65);
+      border-radius: 0 4px 4px 0;
+    }
+
+    .teacher-quote p {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.0625rem;
+      color: var(--ink);
+      font-weight: 500;
+      margin-bottom: 6px;
+      line-height: 1.45;
+    }
+
+    .teacher-quote span {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+    }
+
+    /* -------------------------------------------------------------
+       9. BONUS (BÔNUS)
+       ------------------------------------------------------------- */
+    .bonus-section {
+      padding: 80px 0;
+      background-color: var(--paper);
+    }
+
+    .bonus-header {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 48px auto;
+    }
+
+    .bonus-header .eyebrow {
+      color: var(--cinnabar);
+    }
+
+    .bonus-header h2 {
+      font-size: 2rem;
+    }
+
+    .bonus-card {
+      background-color: var(--paper-2);
+      border: 1px solid var(--line);
+      padding: 28px;
+      border-radius: 4px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .bonus-card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+    }
+
+    .bonus-tag {
+      background-color: var(--jade-deep);
+      color: #FDFBF7;
+      font-size: 0.6875rem;
+      font-weight: 700;
+      padding: 4px 8px;
+      border-radius: 3px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .bonus-note {
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    .bonus-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 10px;
+    }
+
+    .bonus-card p {
+      font-size: 0.875rem;
+      color: var(--ink-soft);
+      line-height: 1.6;
+    }
+
+    .bonus-card-price {
+      margin-top: 24px;
+      padding-top: 14px;
+      border-top: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8125rem;
+      color: var(--muted);
+    }
+
+    .bonus-card-price strong {
+      font-family: var(--font-display);
+      color: var(--cinnabar);
+      font-size: 1rem;
+    }
+
+    .bonus-total-banner {
+      margin-top: 40px;
+      background-color: var(--jade-deep);
+      color: var(--paper);
+      padding: 20px;
+      border-radius: 4px;
+      text-align: center;
+      border: 1px solid var(--jade);
+      max-width: 760px;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 1rem;
+    }
+
+    .bonus-total-banner strong {
+      color: var(--gold);
+      font-size: 1.125rem;
+    }
+
+    /* -------------------------------------------------------------
+       10. FOR WHOM (PRA QUEM É)
+       ------------------------------------------------------------- */
+    .target-section {
+      background-color: var(--paper-2);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 80px 0;
+    }
+
+    .target-header {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 48px auto;
+    }
+
+    .target-header .eyebrow {
+      color: var(--jade);
+    }
+
+    .target-header h2 {
+      font-size: 2rem;
+    }
+
+    .target-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    .target-box {
+      padding: 32px;
+      border-radius: 4px;
+    }
+
+    .target-box.yes {
+      background-color: #E7EFEA;
+      border: 1px solid rgba(62, 98, 89, 0.3);
+    }
+
+    .target-box.no {
+      background-color: #F8EAE8;
+      border: 1px solid rgba(178, 58, 46, 0.25);
+    }
+
+    .target-box-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding-bottom: 16px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    .target-box-title .icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 9999px;
+      color: #FFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .target-box.yes .icon { background-color: var(--jade); }
+    .target-box.no .icon { background-color: var(--cinnabar); }
+
+    .target-box.yes h3 { color: var(--jade-deep); font-size: 1.25rem; }
+    .target-box.no h3 { color: var(--cinnabar-deep); font-size: 1.25rem; }
+
+    .target-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .target-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.9375rem;
+      color: var(--ink-soft);
+      line-height: 1.5;
+    }
+
+    .target-list li .bullet {
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .target-box.yes .bullet { color: var(--jade); }
+    .target-box.no .bullet { color: var(--cinnabar); }
+
+    /* -------------------------------------------------------------
+       11. TESTIMONIALS (DEPOIMENTOS)
+       ------------------------------------------------------------- */
+    .testimonials-section {
+      padding: 80px 0;
+      background-color: var(--paper);
+    }
+
+    .testimonials-header {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 48px auto;
+    }
+
+    .testimonials-header .eyebrow {
+      color: var(--jade);
+    }
+
+    .testimonials-header h2 {
+      font-size: 2rem;
+    }
+
+    .testimonial-card {
+      background-color: var(--paper-2);
+      border: 1px solid var(--line);
+      padding: 28px;
+      border-radius: 4px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .stars {
+      color: var(--gold);
+      font-size: 1rem;
+      letter-spacing: 2px;
+      margin-bottom: 14px;
+    }
+
+    .testimonial-quote {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 0.9375rem;
+      color: var(--ink);
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .testimonial-user {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding-top: 16px;
+      border-top: 1px solid var(--line);
+    }
+
+    .avatar-circle {
+      width: 40px;
+      height: 40px;
+      border-radius: 9999px;
+      background-color: var(--jade-deep);
+      color: var(--paper);
+      font-family: var(--font-display);
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9375rem;
+      flex-shrink: 0;
+    }
+
+    .user-name {
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .user-time {
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    /* -------------------------------------------------------------
+       12. OFFER SECTION (OFERTA - id="oferta")
+       ------------------------------------------------------------- */
+    .offer-section {
+      background-color: var(--ink);
+      color: var(--paper);
+      padding: 80px 0;
+      position: relative;
+    }
+
+    .offer-header {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 36px auto;
+    }
+
+    .offer-header .eyebrow {
+      color: var(--gold);
+    }
+
+    .offer-header h2 {
+      color: var(--paper);
+      font-size: 2.25rem;
+    }
+
+    .product-mockup-wrapper {
+      max-width: 400px;
+      margin: 0 auto 40px auto;
+      text-align: center;
+    }
+
+    .product-mockup-wrapper img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 6px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .offer-card {
+      max-width: 560px;
+      margin: 0 auto;
+      background-color: var(--paper);
+      color: var(--ink);
+      border-radius: 6px;
+      border: 1px solid var(--line);
+      box-shadow: 0 24px 48px rgba(0, 0, 0, 0.25);
+      overflow: hidden;
+    }
+
+    .offer-card-top-bar {
+      background-color: var(--jade-deep);
+      color: #FDFBF7;
+      padding: 14px;
+      text-align: center;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+
+    .offer-card-body {
+      padding: 32px 28px;
+    }
+
+    .offer-checklist {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .offer-checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.9375rem;
+      color: var(--ink);
+    }
+
+    .offer-checklist .main-item {
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    .offer-checklist .check {
+      color: var(--jade);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .price-box {
+      text-align: center;
+      padding: 24px 0;
+    }
+
+    .price-old {
+      font-size: 0.9375rem;
+      color: var(--muted);
+      text-decoration: line-through;
+    }
+
+    .price-current-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .price-current-row .prefix {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .price-current-row .price-val {
+      font-family: var(--font-display);
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: var(--cinnabar);
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+
+    .price-note {
+      font-size: 0.8125rem;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
+    .btn-offer {
+      width: 100%;
+      padding: 18px 24px;
+      font-size: 1.125rem;
+    }
+
+    .countdown-box {
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(220, 211, 187, 0.8);
+      text-align: center;
+    }
+
+    .timer-display {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      font-family: monospace;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--cinnabar);
+    }
+
+    .timer-unit {
+      background-color: var(--paper-2);
+      border: 1px solid var(--line);
+      padding: 4px 8px;
+      border-radius: 3px;
+    }
+
+    .countdown-label {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+    /* -------------------------------------------------------------
+       13. GUARANTEE (GARANTIA)
+       ------------------------------------------------------------- */
+    .guarantee-section {
+      background-color: var(--paper-2);
+      border-bottom: 1px solid var(--line);
+      padding: 64px 0;
+    }
+
+    .guarantee-card {
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: var(--paper);
+      border: 1px solid var(--line);
+      padding: 36px;
+      border-radius: 6px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+      text-align: center;
+    }
+
+    .guarantee-badge {
+      width: 110px;
+      height: 110px;
+      border-radius: 9999px;
+      background-color: var(--jade-deep);
+      color: var(--paper);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border: 3px solid var(--jade);
+      flex-shrink: 0;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+    }
+
+    .guarantee-badge .days {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .guarantee-badge .label {
+      font-size: 0.6875rem;
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      margin-top: 4px;
+      color: var(--paper);
+    }
+
+    .guarantee-text h3 {
+      font-size: 1.35rem;
+      margin-bottom: 10px;
+    }
+
+    .guarantee-text p {
+      font-size: 0.9375rem;
+      color: var(--ink-soft);
+      line-height: 1.6;
+    }
+
+    /* -------------------------------------------------------------
+       14. FAQ (PERGUNTAS FREQUENTES)
+       ------------------------------------------------------------- */
+    .faq-section {
+      padding: 80px 0;
+      background-color: var(--paper);
+    }
+
+    .faq-header {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 48px auto;
+    }
+
+    .faq-header .eyebrow {
+      color: var(--jade);
+    }
+
+    .faq-header h2 {
+      font-size: 2rem;
+    }
+
+    .faq-list {
+      max-width: 760px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .faq-item {
+      background-color: var(--paper-2);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .faq-button {
+      width: 100%;
+      text-align: left;
+      padding: 20px 24px;
+      background: none;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      cursor: pointer;
+      font-family: var(--font-display);
+      font-size: 1.0625rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .faq-button:focus-visible {
+      outline: 2px solid var(--cinnabar);
+    }
+
+    .faq-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 9999px;
+      background-color: var(--paper);
+      border: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--jade);
+      flex-shrink: 0;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    .faq-item.active .faq-icon {
+      transform: rotate(45deg);
+      color: var(--cinnabar);
+    }
+
+    .faq-content {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, opacity 0.3s ease;
+    }
+
+    .faq-item.active .faq-content {
+      max-height: 400px;
+      opacity: 1;
+    }
+
+    .faq-content-inner {
+      padding: 0 24px 22px 24px;
+      font-size: 0.9375rem;
+      color: var(--ink-soft);
+      line-height: 1.65;
+      border-top: 1px solid rgba(220, 211, 187, 0.5);
+      padding-top: 14px;
+    }
+
+    /* -------------------------------------------------------------
+       15. FINAL CTA
+       ------------------------------------------------------------- */
+    .final-cta-section {
+      background-color: var(--paper-2);
+      border-top: 1px solid var(--line);
+      padding: 80px 0;
+      text-align: center;
+    }
+
+    .final-cta-inner {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .final-cta-inner h2 {
+      font-size: 2.25rem;
+      margin-bottom: 20px;
+    }
+
+    .final-cta-inner p {
+      font-size: 1.0625rem;
+      color: var(--ink-soft);
+      line-height: 1.65;
+      margin-bottom: 36px;
+    }
+
+    .final-cta-btn {
+      padding: 18px 40px;
+      font-size: 1.125rem;
+    }
+
+    .final-trust {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      font-size: 0.8125rem;
+      color: var(--muted);
+    }
+
+    /* -------------------------------------------------------------
+       16. FOOTER
+       ------------------------------------------------------------- */
+    footer {
+      background-color: var(--jade-deep);
+      color: var(--paper);
+      padding: 56px 0 40px 0;
+      border-top: 1px solid var(--jade);
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .footer-brand .seal {
+      width: 36px;
+      height: 36px;
+      font-size: 1.125rem;
+    }
+
+    .footer-brand span {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #FDFBF7;
+    }
+
+    .footer-disclaimer {
+      font-size: 0.8125rem;
+      color: rgba(220, 211, 187, 0.75);
+      line-height: 1.6;
+      max-width: 860px;
+      margin-bottom: 32px;
+    }
+
+    .footer-bottom {
+      padding-top: 24px;
+      border-top: 1px solid rgba(62, 98, 89, 0.6);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      font-size: 0.75rem;
+      color: rgba(220, 211, 187, 0.6);
+    }
+
+    /* -------------------------------------------------------------
+       17. STICKY BOTTOM BAR
+       ------------------------------------------------------------- */
+    .sticky-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      background-color: rgba(29, 58, 50, 0.96);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      color: var(--paper);
+      border-top: 1px solid var(--jade);
+      padding: 12px 20px;
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.2);
+      transform: translateY(100%);
+      opacity: 0;
+      pointer-events: none;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .sticky-bar.visible {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .sticky-bar-inner {
+      max-width: 1140px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .sticky-bar-left {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .sticky-price {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #FDFBF7;
+      flex-shrink: 0;
+    }
+
+    .sticky-desc {
+      font-size: 0.8125rem;
+      color: rgba(220, 211, 187, 0.85);
+    }
+
+    .sticky-btn {
+      padding: 10px 24px;
+      font-size: 0.875rem;
+      flex-shrink: 0;
+    }
+
+    /* -------------------------------------------------------------
+       18. SCROLL REVEAL UTILITY
+       ------------------------------------------------------------- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* -------------------------------------------------------------
+       19. RESPONSIVE BREAKPOINTS (860px+)
+       ------------------------------------------------------------- */
+    @media (min-width: 860px) {
+      .hero-grid {
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 48px;
+      }
+
+      .hero-h1 {
+        font-size: 2.75rem;
+      }
+
+      .hero-btn {
+        width: auto;
+      }
+
+      .cards-grid-3 {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .grid-2x2 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .teacher-grid {
+        grid-template-columns: 0.8fr 1.2fr;
+        gap: 56px;
+      }
+
+      .target-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .guarantee-card {
+        flex-direction: row;
+        text-align: left;
+        gap: 36px;
+      }
+
+      .footer-bottom {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Subtle Texture Overlay -->
+  <div class="grain-layer" aria-hidden="true"></div>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container">
+      <div class="header-inner">
+        <a href="#" class="brand-logo">
+          <div class="seal">林</div>
+          <div>
+            <span class="brand-name">Mestra Lin</span>
+            <span class="brand-tagline">Medicina Chinesa Tradicional</span>
+          </div>
+        </a>
+
+        <a href="#oferta" class="btn-cta btn-header">
+          Quero as 100 receitas
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="hero-grid">
+        
+        <!-- Left: Copy & CTA -->
+        <div class="reveal">
+          <h1 class="hero-h1">
+            Seu corpo não está <span class="highlight">errado</span>. Só está sem o cuidado certo.
+          </h1>
+
+          <p class="hero-sub">
+            100 receitas tradicionais inspiradas na Medicina Chinesa, reunidas pela Mestra Lin, para você aliviar o inchaço, melhorar a digestão, ganhar disposição e voltar a dormir a noite inteira — sem remédio caro e sem depender pra sempre da farmácia.
+          </p>
+
+          <ul class="hero-pains">
+            <li>
+              <span class="arrow">→</span>
+              <span>Você acorda cansada mesmo depois de &ldquo;dormir&rdquo; 7 horas.</span>
+            </li>
+            <li>
+              <span class="arrow">→</span>
+              <span>A barriga incha no fim do dia e a roupa aperta diferente.</span>
+            </li>
+            <li>
+              <span class="arrow">→</span>
+              <span>O intestino trava, a digestão pesa, e cada remédio novo esconde o sintoma sem resolver a causa.</span>
+            </li>
+          </ul>
+
+          <div class="hero-actions">
+            <a href="#oferta" class="btn-cta hero-btn pulse-glow">
+              Quero as 100 receitas da Mestra Lin →
+            </a>
+
+            <div class="trust-row">
+              <span><span class="check">✓</span> Acesso imediato</span>
+              <span>·</span>
+              <span><span class="check">✓</span> 7 dias de garantia</span>
+              <span>·</span>
+              <span><span class="check">✓</span> Pelo celular ou computador</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Teacher photo with badge -->
+        <div class="hero-visual reveal">
+          <div class="hero-frame">
+            <img src="https://i.ibb.co/jk7gVNrZ/mestra-com-o-livro.png" alt="Mestra Lin com o livro de receitas tradicionais">
+          </div>
+
+          <div class="floating-badge">
+            <div class="badge-number">100</div>
+            <div class="badge-text">
+              receitas com ingredientes, modo de preparo e contraindicações — <strong>divididas por sintoma</strong>.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE TICKER (FAIXA DE PROVA SOCIAL) -->
+  <div class="marquee-wrapper">
+    <div class="marquee-track">
+      <!-- Group 1 -->
+      <div class="marquee-group">
+        <div class="marquee-item"><span class="seal-char">林</span><span>Inchaço e retenção</span></div>
+        <div class="marquee-item"><span class="seal-char">林</span><span>Digestão travada</span></div>
+        <div class="marquee-item"><span class="seal-char">林</span><span>Disposição e energia</span></div>
+        <div class="marquee-item"><span class="seal-char">林</span><span>Noites de sono tranquilas</span></div>
+        <div class="marquee-item"><span class="seal-char">林</span><span>Receitas centenárias</span></div>
+      </div>
+      <!-- Group 2 (duplicate) -->
+      <div class="marquee-group" aria-hidden="true">
+        <div class="marquee-item"><span class="seal-char">林</span><span>Inchaço e retenção</span></div>
+        <div class="marquee-item"><span class="seal-char">林</span><span>Digestão travada</span></div>
+        <div class="marquee-item"><span class="seal-char">林</span><span>Disposição e energia</span></div>
+        <div class="marquee-item"><span class="seal-char">林</span><span>Noites de sono tranquilas</span></div>
+        <div class="marquee-item"><span class="seal-char">林</span><span>Receitas centenárias</span></div>
+      </div>
+      <!-- Group 3 (duplicate) -->
+      <div class="marquee-group" aria-hidden="true">
+        <div class="marquee-item"><span class="seal-char">林</span><span>Inchaço e retenção</span></div>
+        <div class="marquee-item"><span class="seal-char">林</span><span>Digestão travada</span></div>
+        <div class="marquee-item"><span class="seal-char">林</span><span>Disposição e energia</span></div>
+        <div class="marquee-item"><span class="seal-char">林</span><span>Noites de sono tranquilas</span></div>
+        <div class="marquee-item"><span class="seal-char">林</span><span>Receitas centenárias</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAIN AGITATION (SEÇÃO DE AGITAÇÃO DA DOR) -->
+  <section class="agitation-section">
+    <div class="container">
+      <div class="agitation-header reveal">
+        <span class="eyebrow">Pare tudo por 1 minuto</span>
+        <h2>Você já tentou de tudo. O problema nunca foi sua força de vontade.</h2>
+        <p>A maioria das mulheres cai em uma destas três armadilhas — e nenhuma delas cuida da raiz do inchaço, da digestão travada ou das noites mal dormidas.</p>
+      </div>
+
+      <div class="cards-grid-3">
+        <!-- 01 -->
+        <div class="agitation-card reveal">
+          <div class="num">01</div>
+          <h3>Comprimido pra tudo</h3>
+          <p>Um remédio esconde o sintoma e abre espaço pra outro aparecer. Em pouco tempo você toma três, quatro, e a causa continua lá.</p>
+        </div>
+        <!-- 02 -->
+        <div class="agitation-card reveal">
+          <div class="num">02</div>
+          <h3>Chá de caixinha do mercado</h3>
+          <p>Quase todo o peso é folha seca sem princípio ativo relevante. Você toma trinta dias, não sente nada, e conclui que &ldquo;chá não funciona&rdquo;.</p>
+        </div>
+        <!-- 03 -->
+        <div class="agitation-card reveal">
+          <div class="num">03</div>
+          <h3>Receita solta da internet</h3>
+          <p>Sem saber a dose certa, o horário certo e quem não pode tomar, você vira cobaia de si mesma — e às vezes o quadro piora.</p>
+        </div>
+      </div>
+
+      <div class="agitation-quote reveal">
+        <p>&ldquo;A raiz é o que a Medicina Chinesa já sabia há 3 mil anos: alimento, planta e ritual — na dose certa, no momento certo. É exatamente isso que está dentro das 100 receitas da Mestra Lin.&rdquo;</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSIDE THE BOOK (DENTRO DO LIVRO) -->
+  <section class="inside-section">
+    <div class="container">
+      <div class="inside-header reveal">
+        <span class="eyebrow">Dentro do livro</span>
+        <h2>100 receitas divididas em 10 capítulos práticos</h2>
+        <p>Cada capítulo aborda um sintoma específico com receitas detalhadas: ingredientes fáceis de achar, modo de preparo exato, melhor horário para tomar e contraindicações.</p>
+      </div>
+
+      <div class="grid-2x2">
+        <!-- Chapter 1 -->
+        <div class="inside-card reveal">
+          <div>
+            <div class="inside-card-top">
+              <span class="chapter-pill"><span>§</span> Capítulo 1</span>
+              <span class="tag-pill">Imunidade & Vias Aéreas</span>
+            </div>
+            <h3>Receitas Tradicionais para Gripe e Resfriados</h3>
+            <p>Chás de gengibre, infusões tônicas de raízes e vapores ancestrais para desobstruir as vias aéreas, cortar calafrios e fortalecer a imunidade logo nos primeiros sinais.</p>
+          </div>
+          <div class="inside-card-footer">✓ Receitas com dosagem, modo de preparo e contraindicações</div>
+        </div>
+
+        <!-- Chapter 2 -->
+        <div class="inside-card reveal">
+          <div>
+            <div class="inside-card-top">
+              <span class="chapter-pill"><span>§</span> Capítulo 2</span>
+              <span class="tag-pill">Saúde Intestinal</span>
+            </div>
+            <h3>Receitas Tradicionais para Digestão e Intestino</h3>
+            <p>Fórmulas para combater o intestino preso, gases, queimação e estufamento após as refeições, regulando o elemento Terra (baço e estômago).</p>
+          </div>
+          <div class="inside-card-footer">✓ Receitas com dosagem, modo de preparo e contraindicações</div>
+        </div>
+
+        <!-- Chapter 3 -->
+        <div class="inside-card reveal">
+          <div>
+            <div class="inside-card-top">
+              <span class="chapter-pill"><span>§</span> Capítulo 3</span>
+              <span class="tag-pill">Foco & Mente Clara</span>
+            </div>
+            <h3>Receitas Tradicionais para Memória e Concentração</h3>
+            <p>Bebidas e infusões para clareza mental, foco no trabalho, combate ao nevoeiro mental e nutrição profunda da mente (Shen).</p>
+          </div>
+          <div class="inside-card-footer">✓ Receitas com dosagem, modo de preparo e contraindicações</div>
+        </div>
+
+        <!-- Chapter 4 -->
+        <div class="inside-card reveal">
+          <div>
+            <div class="inside-card-top">
+              <span class="chapter-pill"><span>§</span> Capítulo 4</span>
+              <span class="tag-pill">Descanso & Paz</span>
+            </div>
+            <h3>Receitas Tradicionais para Sono, Ansiedade e Relaxamento</h3>
+            <p>Rituais noturnos e chás calmantes para desacelerar pensamentos agitados, acalmar o coração e proporcionar noites inteiras de sono restaurador.</p>
+          </div>
+          <div class="inside-card-footer">✓ Receitas com dosagem, modo de preparo e contraindicações</div>
+        </div>
+
+        <!-- Chapter 5 -->
+        <div class="inside-card reveal">
+          <div>
+            <div class="inside-card-top">
+              <span class="chapter-pill"><span>§</span> Capítulo 5</span>
+              <span class="tag-pill">Fluxo & Circulação</span>
+            </div>
+            <h3>Receitas Tradicionais para Pressão Alta e Circulação</h3>
+            <p>Preparações botânicas para aliviar a sensação de peso nas pernas, equilibrar o fluxo sanguíneo e harmonizar o elemento Fogo de forma natural.</p>
+          </div>
+          <div class="inside-card-footer">✓ Receitas com dosagem, modo de preparo e contraindicações</div>
+        </div>
+
+        <!-- Chapter 6 -->
+        <div class="inside-card reveal">
+          <div>
+            <div class="inside-card-top">
+              <span class="chapter-pill"><span>§</span> Capítulo 6</span>
+              <span class="tag-pill">Articulações & Coluna</span>
+            </div>
+            <h3>Receitas Tradicionais para Dores nas Articulações</h3>
+            <p>Emplastros térmicos tradicionais, caldos fortalecedores e infusões anti-inflamatórias para joelhos, lombar, rigidez matinal e dores no corpo.</p>
+          </div>
+          <div class="inside-card-footer">✓ Receitas com dosagem, modo de preparo e contraindicações</div>
+        </div>
+
+        <!-- Chapter 7 -->
+        <div class="inside-card reveal">
+          <div>
+            <div class="inside-card-top">
+              <span class="chapter-pill"><span>§</span> Capítulo 7</span>
+              <span class="tag-pill">Beleza Ancestral</span>
+            </div>
+            <h3>Receitas Tradicionais para Pele, Cabelo e Unhas</h3>
+            <p>Tônicos nutritivos para brilho, firmeza e queda de cabelo, nutrindo o sangue e os líquidos corporais de dentro para fora.</p>
+          </div>
+          <div class="inside-card-footer">✓ Receitas com dosagem, modo de preparo e contraindicações</div>
+        </div>
+
+        <!-- Chapter 8 -->
+        <div class="inside-card reveal">
+          <div>
+            <div class="inside-card-top">
+              <span class="chapter-pill"><span>§</span> Capítulo 8</span>
+              <span class="tag-pill">Vitalidade & Qi</span>
+            </div>
+            <h3>Receitas Tradicionais para Energia e Disposição</h3>
+            <p>Tônicos de revigoramento para quem acorda exausta, restaurando a energia vital (o Qi) sem causar taquicardia ou picos passageiros.</p>
+          </div>
+          <div class="inside-card-footer">✓ Receitas com dosagem, modo de preparo e contraindicações</div>
+        </div>
+
+        <!-- Chapter 9 -->
+        <div class="inside-card reveal">
+          <div>
+            <div class="inside-card-top">
+              <span class="chapter-pill"><span>§</span> Capítulo 9</span>
+              <span class="tag-pill">Metabolismo & Drenagem</span>
+            </div>
+            <h3>Receitas Tradicionais para Emagrecimento e Metabolismo</h3>
+            <p>Mistelas termogênicas suaves e estimulantes de digestão para acelerar a queima calórica, drenar retenção hídrica e eliminar toxinas acumuladas.</p>
+          </div>
+          <div class="inside-card-footer">✓ Receitas com dosagem, modo de preparo e contraindicações</div>
+        </div>
+
+        <!-- Chapter 10 -->
+        <div class="inside-card reveal">
+          <div>
+            <div class="inside-card-top">
+              <span class="chapter-pill"><span>§</span> Capítulo 10</span>
+              <span class="tag-pill">Segredos da Família Lin</span>
+            </div>
+            <h3>Receitas Especiais da Mestra Lin</h3>
+            <p>Os segredos mais guardados da tradição familiar da Mestra Lin — elixires de longevidade, combinações secretas e rituais de equilíbrio para o corpo todo.</p>
+          </div>
+          <div class="inside-card-footer">✓ Receitas com dosagem, modo de preparo e contraindicações</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO TEACHES (QUEM ENSINA) -->
+  <section class="teacher-section">
+    <div class="container">
+      <div class="teacher-grid">
+        
+        <!-- Photo with Seal -->
+        <div class="teacher-visual reveal">
+          <div class="teacher-frame">
+            <img src="https://i.ibb.co/jk7gVNrZ/mestra-com-o-livro.png" alt="Mestra Lin segurando o livro de receitas tradicionais">
+          </div>
+          <div class="seal teacher-seal-badge">林</div>
+        </div>
+
+        <!-- Content -->
+        <div class="teacher-content reveal">
+          <span class="eyebrow">Quem ensina</span>
+          <h2>A Mestra Lin aprendeu o que sabe antes de aprender a ler.</h2>
+          
+          <p>Desde criança, ao lado da avó, a Mestra Lin observava quais raízes aliviavam a dor, qual chá acalmava o sono e qual receita desinchava o corpo depois de um dia inteiro de trabalho no campo. Não era teoria — era o que a família usava havia gerações, muito antes de existir uma farmácia por perto.</p>
+
+          <div class="teacher-quote">
+            <p>&ldquo;Eu não ensino remédio milagroso. Ensino o que minha avó fazia quando não tinha outra opção — e que continua funcionando.&rdquo;</p>
+            <span>— Mestra Lin</span>
+          </div>
+
+          <p>Depois de décadas levando essas receitas para quem passava por ela, a Mestra Lin reuniu as 100 fórmulas que mais pediam de volta em um único material — organizado, com dose certa e contraindicações claras, para você aplicar em casa hoje.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- BONUS (BÔNUS) -->
+  <section class="bonus-section">
+    <div class="container">
+      <div class="bonus-header reveal">
+        <span class="eyebrow">Comprando hoje você também recebe</span>
+        <h2>3 bônus para você sair do zero direto pro resultado</h2>
+      </div>
+
+      <div class="cards-grid-3">
+        <!-- Bonus 1 -->
+        <div class="bonus-card reveal">
+          <div>
+            <div class="bonus-card-top">
+              <span class="bonus-tag">BÔNUS 1</span>
+              <span class="bonus-note">Incluso hoje</span>
+            </div>
+            <h3>Plano de 30 Dias</h3>
+            <p>Seu mês inteiro organizado receita por receita — semana a semana — pra você só seguir, sem precisar decidir nada sozinha.</p>
+          </div>
+          <div class="bonus-card-price">
+            <span>Valor regular:</span>
+            <strong>R$ 67</strong>
+          </div>
+        </div>
+
+        <!-- Bonus 2 -->
+        <div class="bonus-card reveal">
+          <div>
+            <div class="bonus-card-top">
+              <span class="bonus-tag">BÔNUS 2</span>
+              <span class="bonus-note">Incluso hoje</span>
+            </div>
+            <h3>Guia dos Chás</h3>
+            <p>O passo a passo certo de tempo de infusão, temperatura da água e quantidade de folhas pra cada chá render o máximo efeito.</p>
+          </div>
+          <div class="bonus-card-price">
+            <span>Valor regular:</span>
+            <strong>R$ 47</strong>
+          </div>
+        </div>
+
+        <!-- Bonus 3 -->
+        <div class="bonus-card reveal">
+          <div>
+            <div class="bonus-card-top">
+              <span class="bonus-tag">BÔNUS 3</span>
+              <span class="bonus-note">Incluso hoje</span>
+            </div>
+            <h3>Saúde e Autocuidado na Horta</h3>
+            <p>Como cultivar em casa as ervas mais usadas nas receitas — mesmo em vaso pequeno — pra você ter ingrediente fresco sempre à mão.</p>
+          </div>
+          <div class="bonus-card-price">
+            <span>Valor regular:</span>
+            <strong>R$ 47</strong>
+          </div>
+        </div>
+      </div>
+
+      <div class="bonus-total-banner reveal">
+        Os bônus juntos valem <strong>R$ 161</strong> — e estão inclusos hoje, sem custo adicional, junto com as 100 receitas.
+      </div>
+    </div>
+  </section>
+
+  <!-- FOR WHOM (PRA QUEM É) -->
+  <section class="target-section">
+    <div class="container">
+      <div class="target-header reveal">
+        <span class="eyebrow">Pra quem é</span>
+        <h2>Isso aqui é pra você — ou não é?</h2>
+      </div>
+
+      <div class="target-grid">
+        <!-- YES -->
+        <div class="target-box yes reveal">
+          <div class="target-box-title">
+            <div class="icon">✓</div>
+            <h3>As 100 receitas são pra você que:</h3>
+          </div>
+          <ul class="target-list">
+            <li>
+              <span class="bullet">✓</span>
+              <span>Já cansou de gastar com remédio e ver o mesmo sintoma voltar em pouco tempo</span>
+            </li>
+            <li>
+              <span class="bullet">✓</span>
+              <span>Acorda inchada, mal digere ou vive sem energia há meses (ou anos)</span>
+            </li>
+            <li>
+              <span class="bullet">✓</span>
+              <span>Prefere cuidar do corpo com o que a natureza oferece, de forma consciente</span>
+            </li>
+            <li>
+              <span class="bullet">✓</span>
+              <span>Quer uma rotina simples de seguir — não uma dieta restritiva</span>
+            </li>
+            <li>
+              <span class="bullet">✓</span>
+              <span>Já ouviu de alguém mais velho um chá que funcionou, e quer o conhecimento certo pra usar em casa</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- NO -->
+        <div class="target-box no reveal">
+          <div class="target-box-title">
+            <div class="icon">✕</div>
+            <h3>Não é pra você se:</h3>
+          </div>
+          <ul class="target-list">
+            <li>
+              <span class="bullet">✕</span>
+              <span>Você busca uma &ldquo;cura milagrosa&rdquo; em 3 dias</span>
+            </li>
+            <li>
+              <span class="bullet">✕</span>
+              <span>Você não está disposta a seguir uma rotina simples, ainda que por poucos minutos ao dia</span>
+            </li>
+            <li>
+              <span class="bullet">✕</span>
+              <span>Você acredita que remédio de tarja preta resolve tudo sem nenhuma consequência</span>
+            </li>
+            <li>
+              <span class="bullet">✕</span>
+              <span>Você quer trocar acompanhamento médico por receita caseira, em vez de usar as duas coisas juntas</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS (DEPOIMENTOS) -->
+  <section class="testimonials-section">
+    <div class="container">
+      <div class="testimonials-header reveal">
+        <span class="eyebrow">Quem já aplicou</span>
+        <h2>Resultado de quem trocou a dúvida pela rotina certa</h2>
+      </div>
+
+      <div class="cards-grid-3">
+        <!-- Testimonial 1 -->
+        <div class="testimonial-card reveal">
+          <div>
+            <div class="stars">★★★★★</div>
+            <p class="testimonial-quote">&ldquo;Voltei a dormir a noite inteira depois de anos acordando de madrugada. O chá pro sono da Mestra Lin virou ritual aqui em casa.&rdquo;</p>
+          </div>
+          <div class="testimonial-user">
+            <div class="avatar-circle">R</div>
+            <div>
+              <div class="user-name">Rosana, 58 anos</div>
+              <div class="user-time">Usa há 3 semanas</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="testimonial-card reveal">
+          <div>
+            <div class="stars">★★★★★</div>
+            <p class="testimonial-quote">&ldquo;Meu intestino travava por dias. Com a receita certa, no segundo dia já senti diferença — sem aquela dor de sempre.&rdquo;</p>
+          </div>
+          <div class="testimonial-user">
+            <div class="avatar-circle">M</div>
+            <div>
+              <div class="user-name">Marisa, 61 anos</div>
+              <div class="user-time">Usa há 2 meses</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="testimonial-card reveal">
+          <div>
+            <div class="stars">★★★★★</div>
+            <p class="testimonial-quote">&ldquo;O inchaço no fim do dia diminuiu muito. Tomo a mistela de gengibre logo cedo e sinto a diferença até a tarde.&rdquo;</p>
+          </div>
+          <div class="testimonial-user">
+            <div class="avatar-circle">S</div>
+            <div>
+              <div class="user-name">Solange, 49 anos</div>
+              <div class="user-time">Usa há 5 semanas</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OFFER SECTION (OFERTA) -->
+  <section id="oferta" class="offer-section">
+    <div class="container">
+      <div class="offer-header reveal">
+        <span class="eyebrow">A oferta de hoje</span>
+        <h2>Leve as 100 receitas e os 3 bônus agora</h2>
+      </div>
+
+      <!-- Product Mockup Image -->
+      <div class="product-mockup-wrapper reveal">
+        <img src="https://i.ibb.co/4w2DdfP6/Chat-GPT-Image-5-de-ago-de-2026-18-11-59.png" alt="Mockup do e-book 100 Receitas Tradicionais da Mestra Lin e Bônus">
+      </div>
+
+      <!-- Pricing Card -->
+      <div class="offer-card reveal">
+        <div class="offer-card-top-bar">
+          Acesso imediato após a confirmação do pagamento
+        </div>
+
+        <div class="offer-card-body">
+          <ul class="offer-checklist">
+            <li class="main-item">
+              <span class="check">✓</span>
+              <span>100 Receitas Tradicionais da Mestra Lin (PDF completo)</span>
+            </li>
+            <li>
+              <span class="check">✓</span>
+              <span>Bônus 1 — Plano de 30 Dias</span>
+            </li>
+            <li>
+              <span class="check">✓</span>
+              <span>Bônus 2 — Guia dos Chás</span>
+            </li>
+            <li>
+              <span class="check">✓</span>
+              <span>Bônus 3 — Saúde e Autocuidado na Horta</span>
+            </li>
+          </ul>
+
+          <div class="price-box">
+            <div class="price-old">De R$ 197</div>
+            <div class="price-current-row">
+              <span class="prefix">Por apenas</span>
+              <span class="price-val">R$ 17,00</span>
+            </div>
+            <div class="price-note">Pagamento único · Pix, cartão ou boleto</div>
+          </div>
+
+          <a href="https://pay.kiwify.com.br/YfrIDx2" target="_blank" rel="noopener noreferrer" class="btn-cta btn-offer pulse-glow">
+            Quero as 100 receitas agora →
+          </a>
+
+          <!-- Realtime countdown timer -->
+          <div class="countdown-box">
+            <div class="timer-display" id="countdown-timer">
+              <span class="timer-unit" id="timer-hours">00</span> :
+              <span class="timer-unit" id="timer-minutes">14</span> :
+              <span class="timer-unit" id="timer-seconds">52</span>
+            </div>
+            <div class="countdown-label">Condição especial encerra ao fim deste cronômetro</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GUARANTEE (GARANTIA) -->
+  <section class="guarantee-section">
+    <div class="container">
+      <div class="guarantee-card reveal">
+        <div class="guarantee-badge">
+          <div class="days">7</div>
+          <div class="label">Dias de garantia</div>
+        </div>
+        <div class="guarantee-text">
+          <h3>Você tem 7 dias pra testar sem risco.</h3>
+          <p>Se dentro de 7 dias você achar que as receitas não são pra você, é só pedir reembolso. Devolvemos cada centavo, sem perguntas e sem burocracia. O risco é todo nosso.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ (PERGUNTAS FREQUENTES) -->
+  <section class="faq-section">
+    <div class="container">
+      <div class="faq-header reveal">
+        <span class="eyebrow">Antes de comprar</span>
+        <h2>Perguntas frequentes</h2>
+      </div>
+
+      <div class="faq-list">
+        <!-- FAQ 1 -->
+        <div class="faq-item reveal">
+          <button type="button" class="faq-button" aria-expanded="false">
+            <span>Tenho pressão alta ou diabetes, posso usar as receitas?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-content">
+            <div class="faq-content-inner">
+              A maioria das receitas pode ser adaptada. Cada uma traz uma indicação clara de quem não deve tomar, e o Mapa de Segurança te mostra exatamente o que evitar no seu caso. Ainda assim, o ideal é mostrar a receita ao seu médico antes de começar.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="faq-item reveal">
+          <button type="button" class="faq-button" aria-expanded="false">
+            <span>Preciso imprimir o material?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-content">
+            <div class="faq-content-inner">
+              Não. Você recebe tudo em PDF e pode acessar pelo celular, tablet ou computador, quando quiser. Se preferir imprimir, também funciona normalmente.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="faq-item reveal">
+          <button type="button" class="faq-button" aria-expanded="false">
+            <span>Quanto tempo demora para eu receber o acesso?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-content">
+            <div class="faq-content-inner">
+              O acesso é imediato. Assim que o pagamento é confirmado, você recebe o link por e-mail e já pode abrir o material.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="faq-item reveal">
+          <button type="button" class="faq-button" aria-expanded="false">
+            <span>Serve para homens também?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-content">
+            <div class="faq-content-inner">
+              Serve. As receitas cuidam de sintomas como inchaço, má digestão, cansaço e insônia — que não têm gênero. Vários homens da família da Mestra Lin usam as mesmas fórmulas.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 5 -->
+        <div class="faq-item reveal">
+          <button type="button" class="faq-button" aria-expanded="false">
+            <span>E se eu não gostar do material?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-content">
+            <div class="faq-content-inner">
+              Você tem 7 dias de garantia incondicional. Basta enviar um e-mail pedindo o reembolso e devolvemos o valor pago, sem perguntas.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final-cta-section">
+    <div class="container">
+      <div class="final-cta-inner reveal">
+        <h2>Se você chegou até aqui, vale a pena tentar.</h2>
+        <p>Por <strong>R$ 17,00</strong> você leva 100 receitas construídas ao longo de gerações — com dose certa, modo de preparo e contraindicações claras. Se funcionar pra você, é uma rotina pra vida toda. Se não funcionar, você tem 7 dias pra pedir de volta.</p>
+        
+        <a href="https://pay.kiwify.com.br/YfrIDx2" target="_blank" rel="noopener noreferrer" class="btn-cta final-cta-btn pulse-glow">
+          Quero as 100 receitas da Mestra Lin →
+        </a>
+
+        <div class="final-trust">
+          <span>✓ Pagamento Seguro</span>
+          <span>·</span>
+          <span>✓ 7 Dias de Garantia</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-brand">
+        <div class="seal">林</div>
+        <span>Mestra Lin</span>
+      </div>
+
+      <p class="footer-disclaimer">
+        <strong>Aviso legal:</strong> As receitas apresentadas neste material têm caráter complementar e não substituem consulta, diagnóstico ou tratamento médico. Se você faz uso contínuo de medicamentos ou possui alguma condição de saúde, converse com seu médico antes de iniciar qualquer receita.
+      </p>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 Mestra Lin. Todos os direitos reservados.</div>
+        <div>Medicina Tradicional Chinesa · 100 Receitas Centenárias</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- STICKY BOTTOM BAR -->
+  <div class="sticky-bar" id="sticky-bar">
+    <div class="sticky-bar-inner">
+      <div class="sticky-bar-left">
+        <span class="sticky-price">R$ 17,00</span>
+        <span class="sticky-desc">100 receitas + 3 bônus · Acesso imediato</span>
+      </div>
+      <a href="https://pay.kiwify.com.br/YfrIDx2" target="_blank" rel="noopener noreferrer" class="btn-cta sticky-btn">
+        Comprar
+      </a>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT LOGIC (VANILLA JS, SELF-CONTAINED) -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      
+      /* 1. SCROLL REVEAL VIA INTERSECTION OBSERVER */
+      const revealElements = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window) {
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('active');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.12,
+          rootMargin: '0px 0px -40px 0px'
+        });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+      } else {
+        revealElements.forEach(el => el.classList.add('active'));
+      }
+
+      /* 2. FAQ ACCORDION (One open at a time, smooth transition) */
+      const faqItems = document.querySelectorAll('.faq-item');
+      faqItems.forEach(item => {
+        const button = item.querySelector('.faq-button');
+        button.addEventListener('click', () => {
+          const isOpen = item.classList.contains('active');
+
+          // Close all
+          faqItems.forEach(otherItem => {
+            otherItem.classList.remove('active');
+            otherItem.querySelector('.faq-button').setAttribute('aria-expanded', 'false');
+          });
+
+          // Toggle current
+          if (!isOpen) {
+            item.classList.add('active');
+            button.setAttribute('aria-expanded', 'true');
+          }
+        });
+      });
+
+      /* 3. STICKY BOTTOM CTA BAR (Appears after 600px, hides when #oferta is visible) */
+      const stickyBar = document.getElementById('sticky-bar');
+      const offerSection = document.getElementById('oferta');
+      let isOfferInView = false;
+
+      if ('IntersectionObserver' in window && offerSection) {
+        const offerObserver = new IntersectionObserver(([entry]) => {
+          isOfferInView = entry.isIntersecting;
+          updateStickyBar();
+        }, { threshold: 0.1 });
+        offerObserver.observe(offerSection);
+      }
+
+      function updateStickyBar() {
+        const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+        if (scrollY > 600 && !isOfferInView) {
+          stickyBar.classList.add('visible');
+        } else {
+          stickyBar.classList.remove('visible');
+        }
+      }
+
+      window.addEventListener('scroll', updateStickyBar, { passive: true });
+
+      /* 4. COUNTDOWN TIMER IN PURE MEMORY (Restarts on page load) */
+      let totalSeconds = 14 * 60 + 52; // 14m 52s initial
+      const elHours = document.getElementById('timer-hours');
+      const elMinutes = document.getElementById('timer-minutes');
+      const elSeconds = document.getElementById('timer-seconds');
+
+      function pad(num) {
+        return String(num).padStart(2, '0');
+      }
+
+      function updateCountdown() {
+        if (totalSeconds <= 0) {
+          totalSeconds = 15 * 60; // reset loop
+        } else {
+          totalSeconds--;
+        }
+
+        const hrs = Math.floor(totalSeconds / 3600);
+        const mins = Math.floor((totalSeconds % 3600) / 60);
+        const secs = totalSeconds % 60;
+
+        if (elHours) elHours.textContent = pad(hrs);
+        if (elMinutes) elMinutes.textContent = pad(mins);
+        if (elSeconds) elSeconds.textContent = pad(secs);
+      }
+
+      setInterval(updateCountdown, 1000);
+
+      /* 5. SMOOTH SCROLL FOR IN-PAGE ANCHORS */
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          const targetId = this.getAttribute('href');
+          if (targetId && targetId !== '#') {
+            const targetEl = document.querySelector(targetId);
+            if (targetEl) {
+              e.preventDefault();
+              targetEl.scrollIntoView({ behavior: 'smooth' });
+            }
+          }
+        });
+      });
+
+    });
+  </script>
+</body>
+</html>

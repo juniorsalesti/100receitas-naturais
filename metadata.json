@@ -1,0 +1,6 @@
+{
+  "name": "Mestra Lin — 100 Receitas Tradicionais",
+  "description": "Landing page de alta conversão para o e-book digital 100 Receitas Tradicionais da Mestra Lin, inspiradas na Medicina Tradicional Chinesa.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
