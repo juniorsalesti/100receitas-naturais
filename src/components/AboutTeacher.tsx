@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { IMAGES } from '../constants';
 
 export const AboutTeacher: React.FC = () => {
+  const [imgLoaded, setImgLoaded] = useState(false);
+
   return (
     <section className="py-14 sm:py-24 bg-[#EFE7D2] border-y border-[#DCD3BB] relative overflow-hidden">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
@@ -10,12 +12,21 @@ export const AboutTeacher: React.FC = () => {
           {/* Left Column: Photo */}
           <div className="lg:col-span-5 flex justify-center">
             <div className="relative w-full max-w-[280px] xs:max-w-xs sm:max-w-sm">
-              <div className="relative bg-[#F6F1E4] p-2 sm:p-3 rounded-[4px] border border-[#DCD3BB] shadow-xl shadow-black/8 overflow-hidden">
+              <div className="relative bg-[#F6F1E4] p-2 sm:p-3 rounded-[4px] border border-[#DCD3BB] shadow-xl shadow-black/8 overflow-hidden aspect-[4/5]">
+                {!imgLoaded && (
+                  <div className="absolute inset-2 sm:inset-3 bg-[#E7DFC6] animate-pulse rounded-[3px]" aria-hidden="true" />
+                )}
                 <img
                   src={IMAGES.teacher}
                   alt="Mestra Lin segurando o livro de receitas tradicionais"
-                  className="w-full h-auto object-cover rounded-[3px] aspect-[4/5]"
+                  width={400}
+                  height={500}
+                  className={`w-full h-full object-cover rounded-[3px] aspect-[4/5] transition-opacity duration-300 ${
+                    imgLoaded ? 'opacity-100' : 'opacity-0'
+                  }`}
                   loading="lazy"
+                  decoding="async"
+                  onLoad={() => setImgLoaded(true)}
                   referrerPolicy="no-referrer"
                 />
               </div>
