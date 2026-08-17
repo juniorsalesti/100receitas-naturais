@@ -22,28 +22,42 @@ import { StickyBottomBar } from './components/StickyBottomBar';
 
 export default function App() {
   useEffect(() => {
-    // Scroll reveal with IntersectionObserver
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('reveal-visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      {
-        threshold: 0.1,
-        rootMargin: '0px 0px -30px 0px',
-      }
-    );
-
+    // Scroll reveal with fail-safe support for In-App Browsers (Instagram/FB/TikTok)
     const elements = document.querySelectorAll('.reveal-on-scroll');
-    elements.forEach((el) => observer.observe(el));
 
-    return () => {
-      elements.forEach((el) => observer.unobserve(el));
-    };
+    if (typeof window !== 'undefined' && 'IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('reveal-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.05,
+          rootMargin: '100px 0px 100px 0px',
+        }
+      );
+
+      elements.forEach((el) => observer.observe(el));
+
+      // Fail-safe: Ensure all elements become visible after max 600ms even if observer fails
+      const safetyTimer = setTimeout(() => {
+        elements.forEach((el) => {
+          el.classList.add('reveal-visible');
+        });
+      }, 600);
+
+      return () => {
+        clearTimeout(safetyTimer);
+        elements.forEach((el) => observer.unobserve(el));
+      };
+    } else {
+      // Direct fallback if IntersectionObserver is unavailable
+      elements.forEach((el) => el.classList.add('reveal-visible'));
+    }
   }, []);
 
   return (
@@ -54,11 +68,9 @@ export default function App() {
       {/* Header */}
       <Header />
 
-      {/* Hero Section */}
+      {/* Hero Section - NEVER HIDDEN, RENDERS IMMEDIATELY */}
       <main>
-        <div className="reveal-on-scroll reveal-init">
-          <Hero />
-        </div>
+        <Hero />
 
         {/* Infinite Social Proof Marquee */}
         <Marquee />

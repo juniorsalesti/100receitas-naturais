@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import { IMAGES } from '../constants';
 
 export const Hero: React.FC = () => {
-  const [imgLoaded, setImgLoaded] = useState(false);
-
   const scrollToOffer = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     const element = document.getElementById('oferta');
@@ -82,10 +80,6 @@ export const Hero: React.FC = () => {
 
               {/* Image Frame */}
               <div className="relative bg-[#EFE7D2] p-2 sm:p-3 rounded-[6px] border border-[#DCD3BB] shadow-xl shadow-black/8 overflow-hidden aspect-[4/5]">
-                {/* Skeleton shimmer before load */}
-                {!imgLoaded && (
-                  <div className="absolute inset-2 sm:inset-3 bg-[#E7DFC6] animate-pulse rounded-[4px]" aria-hidden="true" />
-                )}
                 <picture className="w-full h-full block">
                   <source
                     type="image/avif"
@@ -104,13 +98,10 @@ export const Hero: React.FC = () => {
                     alt="Mestra Lin com o livro de receitas tradicionais"
                     width={IMAGES.teacher.width}
                     height={IMAGES.teacher.height}
-                    className={`w-full h-full object-cover rounded-[4px] aspect-[4/5] filter brightness-[1.01] transition-opacity duration-300 ${
-                      imgLoaded ? 'opacity-100' : 'opacity-0'
-                    }`}
+                    className="w-full h-full object-cover rounded-[4px] aspect-[4/5] filter brightness-[1.01]"
                     loading="eager"
                     decoding="async"
                     fetchPriority="high"
-                    onLoad={() => setImgLoaded(true)}
                     onError={(e) => {
                       (e.currentTarget as HTMLImageElement).src = IMAGES.teacher.fallback;
                     }}

@@ -1621,12 +1621,12 @@
         </div>
 
         <!-- Right: Teacher photo with badge -->
-        <div class="hero-visual reveal">
+        <div class="hero-visual">
           <div class="hero-frame">
             <picture>
               <source type="image/avif" srcset="/images/mestra-com-o-livro-360.avif 360w, /images/mestra-com-o-livro-480.avif 480w, /images/mestra-com-o-livro-768.avif 768w" sizes="(max-width: 640px) 340px, (max-width: 1024px) 440px, 480px">
               <source type="image/webp" srcset="/images/mestra-com-o-livro-360.webp 360w, /images/mestra-com-o-livro-480.webp 480w, /images/mestra-com-o-livro-768.webp 768w" sizes="(max-width: 640px) 340px, (max-width: 1024px) 440px, 480px">
-              <img src="/images/mestra-com-o-livro-480.webp" srcset="/images/mestra-com-o-livro-360.webp 360w, /images/mestra-com-o-livro-480.webp 480w, /images/mestra-com-o-livro-768.webp 768w" sizes="(max-width: 640px) 340px, (max-width: 1024px) 440px, 480px" onerror="this.onerror=null;this.src='https://i.ibb.co/jk7gVNrZ/mestra-com-o-livro.png';" alt="Mestra Lin com o livro de receitas tradicionais" width="480" height="600" loading="eager" decoding="async" fetchpriority="high">
+              <img src="/images/mestra-com-o-livro-480.webp" srcset="/images/mestra-com-o-livro-360.webp 360w, /images/mestra-com-o-livro-480.webp 480w, /images/mestra-com-o-livro-768.webp 768w" sizes="(max-width: 640px) 340px, (max-width: 1024px) 440px, 480px" onerror="this.onerror=null;this.src='/images/mestra-com-o-livro-opt.png';" alt="Mestra Lin com o livro de receitas tradicionais" width="480" height="600" loading="eager" decoding="async" fetchpriority="high">
             </picture>
           </div>
 
@@ -1862,7 +1862,7 @@
             <picture>
               <source type="image/avif" srcset="/images/mestra-com-o-livro-360.avif 360w, /images/mestra-com-o-livro-480.avif 480w, /images/mestra-com-o-livro-768.avif 768w" sizes="(max-width: 640px) 280px, 400px">
               <source type="image/webp" srcset="/images/mestra-com-o-livro-360.webp 360w, /images/mestra-com-o-livro-480.webp 480w, /images/mestra-com-o-livro-768.webp 768w" sizes="(max-width: 640px) 280px, 400px">
-              <img src="/images/mestra-com-o-livro-480.webp" srcset="/images/mestra-com-o-livro-360.webp 360w, /images/mestra-com-o-livro-480.webp 480w, /images/mestra-com-o-livro-768.webp 768w" sizes="(max-width: 640px) 280px, 400px" onerror="this.onerror=null;this.src='https://i.ibb.co/jk7gVNrZ/mestra-com-o-livro.png';" alt="Mestra Lin segurando o livro de receitas tradicionais" width="400" height="500" loading="lazy" decoding="async">
+              <img src="/images/mestra-com-o-livro-480.webp" srcset="/images/mestra-com-o-livro-360.webp 360w, /images/mestra-com-o-livro-480.webp 480w, /images/mestra-com-o-livro-768.webp 768w" sizes="(max-width: 640px) 280px, 400px" onerror="this.onerror=null;this.src='/images/mestra-com-o-livro-opt.png';" alt="Mestra Lin segurando o livro de receitas tradicionais" width="400" height="500" loading="lazy" decoding="async">
             </picture>
           </div>
           <div class="seal teacher-seal-badge">林</div>
@@ -2089,7 +2089,7 @@
         <picture>
           <source type="image/avif" srcset="/images/ebook-mockup-360.avif 360w, /images/ebook-mockup-480.avif 480w, /images/ebook-mockup-768.avif 768w" sizes="(max-width: 640px) 300px, 420px">
           <source type="image/webp" srcset="/images/ebook-mockup-360.webp 360w, /images/ebook-mockup-480.webp 480w, /images/ebook-mockup-768.webp 768w" sizes="(max-width: 640px) 300px, 420px">
-          <img src="/images/ebook-mockup-480.webp" srcset="/images/ebook-mockup-360.webp 360w, /images/ebook-mockup-480.webp 480w, /images/ebook-mockup-768.webp 768w" sizes="(max-width: 640px) 300px, 420px" onerror="this.onerror=null;this.src='https://i.ibb.co/4w2DdfP6/Chat-GPT-Image-5-de-ago-de-2026-18-11-59.png';" alt="Mockup do e-book 100 Receitas Tradicionais da Mestra Lin e Bônus" width="420" height="420" loading="lazy" decoding="async">
+          <img src="/images/ebook-mockup-480.webp" srcset="/images/ebook-mockup-360.webp 360w, /images/ebook-mockup-480.webp 480w, /images/ebook-mockup-768.webp 768w" sizes="(max-width: 640px) 300px, 420px" onerror="this.onerror=null;this.src='/images/ebook-mockup-opt.png';" alt="Mockup do e-book 100 Receitas Tradicionais da Mestra Lin e Bônus" width="420" height="420" loading="lazy" decoding="async">
         </picture>
       </div>
 
@@ -2306,11 +2306,16 @@
             }
           });
         }, {
-          threshold: 0.12,
-          rootMargin: '0px 0px -40px 0px'
+          threshold: 0.05,
+          rootMargin: '100px 0px 100px 0px'
         });
 
         revealElements.forEach(el => revealObserver.observe(el));
+
+        // Fail-safe for In-App Browsers (Instagram/FB/TikTok)
+        setTimeout(() => {
+          revealElements.forEach(el => el.classList.add('active'));
+        }, 600);
       } else {
         revealElements.forEach(el => el.classList.add('active'));
       }
