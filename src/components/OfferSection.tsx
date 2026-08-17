@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { CHECKOUT_URL, IMAGES } from '../constants';
 
 export const OfferSection: React.FC = () => {
+  const [mockupLoaded, setMockupLoaded] = useState(false);
   // Pure JS memory countdown timer (restarts on page load)
   const [timeLeft, setTimeLeft] = useState(14 * 60 + 52); // 14m 52s initial countdown
 
@@ -33,7 +34,7 @@ export const OfferSection: React.FC = () => {
         </div>
 
         {/* Product Mockup Image */}
-        <div className="max-w-md mx-auto mb-8 sm:mb-12 flex justify-center items-center">
+        <div className="max-w-md mx-auto mb-8 sm:mb-12 flex justify-center min-h-[260px] xs:min-h-[300px] sm:min-h-[380px] items-center">
           <div className="relative group w-full flex justify-center">
             <div className="absolute inset-0 bg-[#3E6259]/20 blur-2xl rounded-full transform group-hover:scale-105 transition-transform" />
             <img
@@ -41,12 +42,12 @@ export const OfferSection: React.FC = () => {
               alt="Mockup do e-book 100 Receitas Tradicionais da Mestra Lin e Bônus"
               width={420}
               height={420}
-              className="relative w-full max-w-[270px] xs:max-w-[320px] sm:max-w-[420px] h-auto object-contain rounded-[6px] shadow-2xl filter drop-shadow-[0_20px_25px_rgba(0,0,0,0.5)]"
+              className={`relative w-full max-w-[270px] xs:max-w-[320px] sm:max-w-[420px] h-auto object-contain rounded-[6px] shadow-2xl filter drop-shadow-[0_20px_25px_rgba(0,0,0,0.5)] transition-opacity duration-300 ${
+                mockupLoaded ? 'opacity-100' : 'opacity-0'
+              }`}
               loading="lazy"
               decoding="async"
-              onError={(e) => {
-                (e.currentTarget as HTMLImageElement).src = IMAGES.productMockupFallback;
-              }}
+              onLoad={() => setMockupLoaded(true)}
               referrerPolicy="no-referrer"
             />
           </div>
