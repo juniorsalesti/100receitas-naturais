@@ -86,23 +86,37 @@ export const Hero: React.FC = () => {
                 {!imgLoaded && (
                   <div className="absolute inset-2 sm:inset-3 bg-[#E7DFC6] animate-pulse rounded-[4px]" aria-hidden="true" />
                 )}
-                <img
-                  src={IMAGES.teacher}
-                  alt="Mestra Lin com o livro de receitas tradicionais"
-                  width={480}
-                  height={600}
-                  className={`w-full h-full object-cover rounded-[4px] aspect-[4/5] filter brightness-[1.01] transition-opacity duration-300 ${
-                    imgLoaded ? 'opacity-100' : 'opacity-0'
-                  }`}
-                  loading="eager"
-                  decoding="async"
-                  fetchPriority="high"
-                  onLoad={() => setImgLoaded(true)}
-                  onError={(e) => {
-                    (e.currentTarget as HTMLImageElement).src = IMAGES.teacherFallback;
-                  }}
-                  referrerPolicy="no-referrer"
-                />
+                <picture className="w-full h-full block">
+                  <source
+                    type="image/avif"
+                    srcSet={IMAGES.teacher.avifSrcSet}
+                    sizes={IMAGES.teacher.sizes}
+                  />
+                  <source
+                    type="image/webp"
+                    srcSet={IMAGES.teacher.webpSrcSet}
+                    sizes={IMAGES.teacher.sizes}
+                  />
+                  <img
+                    src={IMAGES.teacher.src}
+                    srcSet={IMAGES.teacher.webpSrcSet}
+                    sizes={IMAGES.teacher.sizes}
+                    alt="Mestra Lin com o livro de receitas tradicionais"
+                    width={IMAGES.teacher.width}
+                    height={IMAGES.teacher.height}
+                    className={`w-full h-full object-cover rounded-[4px] aspect-[4/5] filter brightness-[1.01] transition-opacity duration-300 ${
+                      imgLoaded ? 'opacity-100' : 'opacity-0'
+                    }`}
+                    loading="eager"
+                    decoding="async"
+                    fetchPriority="high"
+                    onLoad={() => setImgLoaded(true)}
+                    onError={(e) => {
+                      (e.currentTarget as HTMLImageElement).src = IMAGES.teacher.fallback;
+                    }}
+                    referrerPolicy="no-referrer"
+                  />
+                </picture>
               </div>
 
               {/* Overlapping Floating Badge */}

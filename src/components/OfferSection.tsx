@@ -37,22 +37,36 @@ export const OfferSection: React.FC = () => {
         <div className="max-w-md mx-auto mb-8 sm:mb-12 flex justify-center min-h-[260px] xs:min-h-[300px] sm:min-h-[380px] items-center">
           <div className="relative group w-full flex justify-center">
             <div className="absolute inset-0 bg-[#3E6259]/20 blur-2xl rounded-full transform group-hover:scale-105 transition-transform" />
-            <img
-              src={IMAGES.productMockup}
-              alt="Mockup do e-book 100 Receitas Tradicionais da Mestra Lin e Bônus"
-              width={420}
-              height={420}
-              className={`relative w-full max-w-[270px] xs:max-w-[320px] sm:max-w-[420px] h-auto object-contain rounded-[6px] shadow-2xl filter drop-shadow-[0_20px_25px_rgba(0,0,0,0.5)] transition-opacity duration-300 ${
-                mockupLoaded ? 'opacity-100' : 'opacity-0'
-              }`}
-              loading="lazy"
-              decoding="async"
-              onLoad={() => setMockupLoaded(true)}
-              onError={(e) => {
-                (e.currentTarget as HTMLImageElement).src = IMAGES.productMockupFallback;
-              }}
-              referrerPolicy="no-referrer"
-            />
+            <picture className="relative flex justify-center">
+              <source
+                type="image/avif"
+                srcSet={IMAGES.productMockup.avifSrcSet}
+                sizes={IMAGES.productMockup.sizes}
+              />
+              <source
+                type="image/webp"
+                srcSet={IMAGES.productMockup.webpSrcSet}
+                sizes={IMAGES.productMockup.sizes}
+              />
+              <img
+                src={IMAGES.productMockup.src}
+                srcSet={IMAGES.productMockup.webpSrcSet}
+                sizes={IMAGES.productMockup.sizes}
+                alt="Mockup do e-book 100 Receitas Tradicionais da Mestra Lin e Bônus"
+                width={IMAGES.productMockup.width}
+                height={IMAGES.productMockup.height}
+                className={`relative w-full max-w-[270px] xs:max-w-[320px] sm:max-w-[420px] h-auto object-contain rounded-[6px] shadow-2xl filter drop-shadow-[0_20px_25px_rgba(0,0,0,0.5)] transition-opacity duration-300 ${
+                  mockupLoaded ? 'opacity-100' : 'opacity-0'
+                }`}
+                loading="lazy"
+                decoding="async"
+                onLoad={() => setMockupLoaded(true)}
+                onError={(e) => {
+                  (e.currentTarget as HTMLImageElement).src = IMAGES.productMockup.fallback;
+                }}
+                referrerPolicy="no-referrer"
+              />
+            </picture>
           </div>
         </div>
 

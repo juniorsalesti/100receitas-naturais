@@ -10,8 +10,16 @@
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
 
-    <!-- Preload Critical LCP Hero Image -->
-    <link rel="preload" as="image" href="/images/mestra-com-o-livro.webp" type="image/webp" fetchpriority="high" />
+    <!-- Preload Critical LCP Hero Image (Responsive WebP & AVIF) -->
+    <link
+      rel="preload"
+      as="image"
+      type="image/webp"
+      href="/images/mestra-com-o-livro-480.webp"
+      imagesrcset="/images/mestra-com-o-livro-360.webp 360w, /images/mestra-com-o-livro-480.webp 480w, /images/mestra-com-o-livro-768.webp 768w"
+      imagesizes="(max-width: 640px) 340px, (max-width: 1024px) 440px, 480px"
+      fetchpriority="high"
+    />
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-WND5351LF7"></script>

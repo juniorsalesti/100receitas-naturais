@@ -16,22 +16,36 @@ export const AboutTeacher: React.FC = () => {
                 {!imgLoaded && (
                   <div className="absolute inset-2 sm:inset-3 bg-[#E7DFC6] animate-pulse rounded-[3px]" aria-hidden="true" />
                 )}
-                <img
-                  src={IMAGES.teacher}
-                  alt="Mestra Lin segurando o livro de receitas tradicionais"
-                  width={400}
-                  height={500}
-                  className={`w-full h-full object-cover rounded-[3px] aspect-[4/5] transition-opacity duration-300 ${
-                    imgLoaded ? 'opacity-100' : 'opacity-0'
-                  }`}
-                  loading="lazy"
-                  decoding="async"
-                  onLoad={() => setImgLoaded(true)}
-                  onError={(e) => {
-                    (e.currentTarget as HTMLImageElement).src = IMAGES.teacherFallback;
-                  }}
-                  referrerPolicy="no-referrer"
-                />
+                <picture className="w-full h-full block">
+                  <source
+                    type="image/avif"
+                    srcSet={IMAGES.teacher.avifSrcSet}
+                    sizes="(max-width: 640px) 280px, 400px"
+                  />
+                  <source
+                    type="image/webp"
+                    srcSet={IMAGES.teacher.webpSrcSet}
+                    sizes="(max-width: 640px) 280px, 400px"
+                  />
+                  <img
+                    src={IMAGES.teacher.src}
+                    srcSet={IMAGES.teacher.webpSrcSet}
+                    sizes="(max-width: 640px) 280px, 400px"
+                    alt="Mestra Lin segurando o livro de receitas tradicionais"
+                    width={400}
+                    height={500}
+                    className={`w-full h-full object-cover rounded-[3px] aspect-[4/5] transition-opacity duration-300 ${
+                      imgLoaded ? 'opacity-100' : 'opacity-0'
+                    }`}
+                    loading="lazy"
+                    decoding="async"
+                    onLoad={() => setImgLoaded(true)}
+                    onError={(e) => {
+                      (e.currentTarget as HTMLImageElement).src = IMAGES.teacher.fallback;
+                    }}
+                    referrerPolicy="no-referrer"
+                  />
+                </picture>
               </div>
 
               {/* Red Seal stamp in bottom right corner */}
