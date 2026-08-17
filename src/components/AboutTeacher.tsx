@@ -27,6 +27,9 @@ export const AboutTeacher: React.FC = () => {
                   loading="lazy"
                   decoding="async"
                   onLoad={() => setImgLoaded(true)}
+                  onError={(e) => {
+                    (e.currentTarget as HTMLImageElement).src = IMAGES.teacherFallback;
+                  }}
                   referrerPolicy="no-referrer"
                 />
               </div>

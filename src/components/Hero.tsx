@@ -98,6 +98,9 @@ export const Hero: React.FC = () => {
                   decoding="async"
                   fetchPriority="high"
                   onLoad={() => setImgLoaded(true)}
+                  onError={(e) => {
+                    (e.currentTarget as HTMLImageElement).src = IMAGES.teacherFallback;
+                  }}
                   referrerPolicy="no-referrer"
                 />
               </div>
