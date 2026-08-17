@@ -18,6 +18,8 @@ export const AboutTeacher: React.FC = () => {
                 )}
                 <img
                   src={IMAGES.teacher}
+                  srcSet={`${IMAGES.teacherSm} 420w, ${IMAGES.teacher} 800w`}
+                  sizes="(max-width: 640px) 280px, 400px"
                   alt="Mestra Lin segurando o livro de receitas tradicionais"
                   width={400}
                   height={500}
@@ -27,6 +29,9 @@ export const AboutTeacher: React.FC = () => {
                   loading="lazy"
                   decoding="async"
                   onLoad={() => setImgLoaded(true)}
+                  onError={(e) => {
+                    (e.currentTarget as HTMLImageElement).src = IMAGES.teacherFallback;
+                  }}
                   referrerPolicy="no-referrer"
                 />
               </div>

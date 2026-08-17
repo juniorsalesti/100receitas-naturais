@@ -88,6 +88,8 @@ export const Hero: React.FC = () => {
                 )}
                 <img
                   src={IMAGES.teacher}
+                  srcSet={`${IMAGES.teacherSm} 420w, ${IMAGES.teacher} 800w`}
+                  sizes="(max-width: 640px) 320px, 480px"
                   alt="Mestra Lin com o livro de receitas tradicionais"
                   width={480}
                   height={600}
@@ -98,6 +100,9 @@ export const Hero: React.FC = () => {
                   decoding="async"
                   fetchPriority="high"
                   onLoad={() => setImgLoaded(true)}
+                  onError={(e) => {
+                    (e.currentTarget as HTMLImageElement).src = IMAGES.teacherFallback;
+                  }}
                   referrerPolicy="no-referrer"
                 />
               </div>

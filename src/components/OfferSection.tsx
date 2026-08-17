@@ -48,6 +48,9 @@ export const OfferSection: React.FC = () => {
               loading="lazy"
               decoding="async"
               onLoad={() => setMockupLoaded(true)}
+              onError={(e) => {
+                (e.currentTarget as HTMLImageElement).src = IMAGES.productMockupFallback;
+              }}
               referrerPolicy="no-referrer"
             />
           </div>
