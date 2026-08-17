@@ -80,34 +80,16 @@ export const Hero: React.FC = () => {
 
               {/* Image Frame */}
               <div className="relative bg-[#EFE7D2] p-2 sm:p-3 rounded-[6px] border border-[#DCD3BB] shadow-xl shadow-black/8 overflow-hidden aspect-[4/5]">
-                <picture className="w-full h-full block">
-                  <source
-                    type="image/avif"
-                    srcSet={IMAGES.teacher.avifSrcSet}
-                    sizes={IMAGES.teacher.sizes}
-                  />
-                  <source
-                    type="image/webp"
-                    srcSet={IMAGES.teacher.webpSrcSet}
-                    sizes={IMAGES.teacher.sizes}
-                  />
-                  <img
-                    src={IMAGES.teacher.src}
-                    srcSet={IMAGES.teacher.webpSrcSet}
-                    sizes={IMAGES.teacher.sizes}
-                    alt="Mestra Lin com o livro de receitas tradicionais"
-                    width={IMAGES.teacher.width}
-                    height={IMAGES.teacher.height}
-                    className="w-full h-full object-cover rounded-[4px] aspect-[4/5] filter brightness-[1.01]"
-                    loading="eager"
-                    decoding="async"
-                    fetchPriority="high"
-                    onError={(e) => {
-                      (e.currentTarget as HTMLImageElement).src = IMAGES.teacher.fallback;
-                    }}
-                    referrerPolicy="no-referrer"
-                  />
-                </picture>
+                <img
+                  src={IMAGES.teacher.src}
+                  alt="Mestra Lin com o livro de receitas tradicionais"
+                  width={IMAGES.teacher.width}
+                  height={IMAGES.teacher.height}
+                  className="w-full h-full object-cover rounded-[4px] aspect-[4/5] filter brightness-[1.01]"
+                  onError={(e) => {
+                    (e.currentTarget as HTMLImageElement).src = IMAGES.teacher.fallback;
+                  }}
+                />
               </div>
 
               {/* Overlapping Floating Badge */}
