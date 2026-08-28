@@ -4,6 +4,7 @@
  */
 
 import React, { useEffect } from 'react';
+import { LocationProvider } from './context/LocationContext';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { Marquee } from './components/Marquee';
@@ -61,75 +62,78 @@ export default function App() {
   }, []);
 
   return (
-    <div className="relative min-h-screen bg-[#F6F1E4] text-[#20261F] overflow-x-hidden selection:bg-[#B23A2E] selection:text-white">
-      {/* Background SVG Grain Overlay */}
-      <div className="grain-overlay" aria-hidden="true" />
+    <LocationProvider>
+      <div className="relative min-h-screen bg-[#F6F1E4] text-[#20261F] overflow-x-hidden selection:bg-[#B23A2E] selection:text-white">
+        {/* Background SVG Grain Overlay */}
+        <div className="grain-overlay" aria-hidden="true" />
 
-      {/* Header */}
-      <Header />
+        {/* Header */}
+        <Header />
 
-      {/* Hero Section - NEVER HIDDEN, RENDERS IMMEDIATELY */}
-      <main>
-        <Hero />
+        {/* Hero Section - NEVER HIDDEN, RENDERS IMMEDIATELY */}
+        <main>
+          <Hero />
 
-        {/* Infinite Social Proof Marquee */}
-        <Marquee />
+          {/* Infinite Social Proof Marquee */}
+          <Marquee />
 
-        {/* Pain Agitation Section */}
-        <div className="reveal-on-scroll reveal-init">
-          <PainAgitation />
-        </div>
+          {/* Pain Agitation Section */}
+          <div className="reveal-on-scroll reveal-init">
+            <PainAgitation />
+          </div>
 
-        {/* Inside the Book */}
-        <div className="reveal-on-scroll reveal-init">
-          <InsideBook />
-        </div>
+          {/* Inside the Book */}
+          <div className="reveal-on-scroll reveal-init">
+            <InsideBook />
+          </div>
 
-        {/* Who Teaches */}
-        <div className="reveal-on-scroll reveal-init">
-          <AboutTeacher />
-        </div>
+          {/* Who Teaches */}
+          <div className="reveal-on-scroll reveal-init">
+            <AboutTeacher />
+          </div>
 
-        {/* Bonus Section */}
-        <div className="reveal-on-scroll reveal-init">
-          <Bonus />
-        </div>
+          {/* Bonus Section */}
+          <div className="reveal-on-scroll reveal-init">
+            <Bonus />
+          </div>
 
-        {/* For Whom / Not For Whom */}
-        <div className="reveal-on-scroll reveal-init">
-          <TargetAudience />
-        </div>
+          {/* For Whom / Not For Whom */}
+          <div className="reveal-on-scroll reveal-init">
+            <TargetAudience />
+          </div>
 
-        {/* Testimonials */}
-        <div className="reveal-on-scroll reveal-init">
-          <Testimonials />
-        </div>
+          {/* Testimonials */}
+          <div className="reveal-on-scroll reveal-init">
+            <Testimonials />
+          </div>
 
-        {/* Offer Section */}
-        <OfferSection />
+          {/* Offer Section */}
+          <OfferSection />
 
-        {/* Guarantee */}
-        <div className="reveal-on-scroll reveal-init">
-          <Guarantee />
-        </div>
+          {/* Guarantee */}
+          <div className="reveal-on-scroll reveal-init">
+            <Guarantee />
+          </div>
 
-        {/* FAQ Accordion */}
-        <div className="reveal-on-scroll reveal-init">
-          <FAQ />
-        </div>
+          {/* FAQ Accordion */}
+          <div className="reveal-on-scroll reveal-init">
+            <FAQ />
+          </div>
 
-        {/* Final Call to Action */}
-        <div className="reveal-on-scroll reveal-init">
-          <FinalCTA />
-        </div>
-      </main>
+          {/* Final Call to Action */}
+          <div className="reveal-on-scroll reveal-init">
+            <FinalCTA />
+          </div>
+        </main>
 
-      {/* Footer */}
-      <Footer />
+        {/* Footer */}
+        <Footer />
 
-      {/* Sticky Bottom Bar */}
-      <StickyBottomBar />
-    </div>
+        {/* Sticky Bottom Bar */}
+        <StickyBottomBar />
+      </div>
+    </LocationProvider>
   );
 }
+
 

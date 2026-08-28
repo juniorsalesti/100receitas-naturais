@@ -1,9 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import { CHECKOUT_URL, IMAGES } from '../constants';
+import { IMAGES } from '../constants';
+import { useLocationCheckout } from '../context/LocationContext';
 
 export const OfferSection: React.FC = () => {
   // Pure JS memory countdown timer (restarts on page load)
   const [timeLeft, setTimeLeft] = useState(14 * 60 + 52); // 14m 52s initial countdown
+  const {
+    location,
+    setLocation,
+    checkoutUrl,
+    priceFormatted,
+    oldPriceFormatted,
+    buttonText,
+    paymentNote,
+    isBrazil
+  } = useLocationCheckout();
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -79,32 +90,89 @@ export const OfferSection: React.FC = () => {
               </div>
             </div>
 
+            {/* "Onde você mora?" Selector */}
+            <div className="py-4.5 sm:py-5 border-b border-[#DCD3BB]">
+              <div className="text-center mb-3">
+                <span className="font-serif-display text-sm sm:text-base font-bold text-[#20261F] tracking-tight">
+                  Onde você mora?
+                </span>
+              </div>
+
+              <div className="grid grid-cols-2 gap-2.5 sm:gap-3">
+                {/* 🇧🇷 Moro no Brasil */}
+                <button
+                  type="button"
+                  onClick={() => setLocation('BR')}
+                  className={`flex flex-col items-center justify-center text-center p-2.5 xs:p-3 sm:p-3.5 rounded-[5px] transition-all duration-200 cursor-pointer min-h-[68px] sm:min-h-[74px] ${
+                    isBrazil
+                      ? 'bg-[#EFE7D2] border-2 border-[#1D3A32] shadow-sm text-[#20261F]'
+                      : 'bg-[#FDFBF7] border border-[#DCD3BB] hover:bg-[#EFE7D2]/60 text-[#6B6350]'
+                  }`}
+                >
+                  <div className="flex items-center gap-1.5 mb-1">
+                    <span className="text-sm sm:text-base">🇧🇷</span>
+                    <span className={`text-xs sm:text-sm ${isBrazil ? 'font-bold text-[#20261F]' : 'font-medium'}`}>
+                      Moro no Brasil
+                    </span>
+                  </div>
+                  <span className={`text-xs sm:text-[13px] font-bold px-2 py-0.5 rounded ${
+                    isBrazil ? 'bg-[#1D3A32] text-[#FDFBF7]' : 'bg-[#EFE7D2] text-[#6B6350]'
+                  }`}>
+                    R$ 17,00
+                  </span>
+                </button>
+
+                {/* 🌎 Moro fora do Brasil */}
+                <button
+                  type="button"
+                  onClick={() => setLocation('INTL')}
+                  className={`flex flex-col items-center justify-center text-center p-2.5 xs:p-3 sm:p-3.5 rounded-[5px] transition-all duration-200 cursor-pointer min-h-[68px] sm:min-h-[74px] ${
+                    !isBrazil
+                      ? 'bg-[#EFE7D2] border-2 border-[#1D3A32] shadow-sm text-[#20261F]'
+                      : 'bg-[#FDFBF7] border border-[#DCD3BB] hover:bg-[#EFE7D2]/60 text-[#6B6350]'
+                  }`}
+                >
+                  <div className="flex items-center gap-1.5 mb-1">
+                    <span className="text-sm sm:text-base">🌎</span>
+                    <span className={`text-xs sm:text-sm ${!isBrazil ? 'font-bold text-[#20261F]' : 'font-medium'}`}>
+                      Moro fora do Brasil
+                    </span>
+                  </div>
+                  <span className={`text-xs sm:text-[13px] font-bold px-2 py-0.5 rounded ${
+                    !isBrazil ? 'bg-[#1D3A32] text-[#FDFBF7]' : 'bg-[#EFE7D2] text-[#6B6350]'
+                  }`}>
+                    US$ 7
+                  </span>
+                </button>
+              </div>
+            </div>
+
             {/* Price Presentation */}
-            <div className="py-5 sm:py-6 text-center">
+            <div className="py-4.5 sm:py-6 text-center">
               <div className="text-sm sm:text-base text-[#6B6350] line-through font-medium">
-                De R$ 197,00
+                {oldPriceFormatted}
               </div>
               
               <div className="mt-1 flex items-baseline justify-center gap-2">
                 <span className="text-xs sm:text-sm font-semibold uppercase text-[#6B6350]">Por apenas</span>
                 <span className="font-serif-display text-4xl sm:text-5xl md:text-6xl font-bold text-[#B23A2E] tracking-tight">
-                  R$ 17,00
+                  {priceFormatted}
                 </span>
               </div>
 
               <div className="mt-1.5 text-xs sm:text-[13px] text-[#6B6350] font-medium">
-                Pagamento único · Pix, cartão ou boleto
+                {paymentNote}
               </div>
             </div>
 
             {/* 100% Width CTA Button */}
             <a
-              href={CHECKOUT_URL}
+              href={checkoutUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="cta-pulse w-full min-h-[54px] inline-flex items-center justify-center text-center px-4 sm:px-6 py-3.5 sm:py-4.5 text-base sm:text-lg font-bold text-[#FDFBF7] bg-[#B23A2E] hover:bg-[#8C2C22] rounded-[4px] transition-all duration-200 shadow-md shadow-[#B23A2E]/30 active:scale-[0.98]"
             >
-              Quero as 100 receitas agora →
+              {buttonText} →
             </a>
 
             {/* Countdown Box */}
@@ -134,4 +202,5 @@ export const OfferSection: React.FC = () => {
     </section>
   );
 };
+
 
