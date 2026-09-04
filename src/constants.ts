@@ -1,6 +1,4 @@
-export const CHECKOUT_URL_BR = "https://pay.kiwify.com.br/YfrIDx2";
-export const CHECKOUT_URL_INTL = "https://pay.kiwify.com/EQ6asit";
-export const CHECKOUT_URL = CHECKOUT_URL_BR;
+export const CHECKOUT_URL = "https://pay.kiwify.com.br/YfrIDx2";
 
 export const IMAGES = {
   teacher: {

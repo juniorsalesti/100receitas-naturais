@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { useLocationCheckout } from '../context/LocationContext';
+import { CHECKOUT_URL } from '../constants';
 
 export const StickyBottomBar: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const { checkoutUrl, priceFormatted, isBrazil, buttonText } = useLocationCheckout();
 
   useEffect(() => {
     let offerVisible = false;
@@ -54,7 +53,7 @@ export const StickyBottomBar: React.FC = () => {
         {/* Left Side: Price & summary */}
         <div className="flex items-baseline gap-1.5 sm:gap-3 truncate min-w-0">
           <span className="font-serif-display font-bold text-lg sm:text-2xl text-[#FDFBF7] tracking-tight shrink-0">
-            {priceFormatted}
+            R$ 37,00
           </span>
           <span className="text-[11px] sm:text-sm text-[#DCD3BB]/85 truncate hidden xs:inline">
             100 receitas + 3 bônus
@@ -63,17 +62,16 @@ export const StickyBottomBar: React.FC = () => {
 
         {/* Right Side: Buy button with 44px min touch height */}
         <a
-          href={checkoutUrl}
+          href={CHECKOUT_URL}
           target="_blank"
           rel="noopener noreferrer"
           className="shrink-0 min-h-[44px] inline-flex items-center justify-center px-4 sm:px-8 py-2 sm:py-3 text-xs sm:text-sm font-bold text-[#FDFBF7] bg-[#B23A2E] hover:bg-[#8C2C22] rounded-[4px] transition-all shadow-md shadow-[#B23A2E]/20 active:scale-[0.97]"
         >
-          {isBrazil ? 'Comprar agora →' : `${buttonText} →`}
+          Comprar agora →
         </a>
 
       </div>
     </aside>
   );
 };
-
 

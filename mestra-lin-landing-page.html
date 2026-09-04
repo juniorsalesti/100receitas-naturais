@@ -1107,82 +1107,6 @@
       margin-top: 1px;
     }
 
-    /* Location Selector in Offer Card */
-    .location-selector-wrap {
-      padding: 18px 0;
-      border-bottom: 1px solid var(--line);
-      text-align: center;
-    }
-
-    .location-selector-title {
-      font-family: var(--font-display);
-      font-size: 0.9375rem;
-      font-weight: 700;
-      color: var(--ink);
-      margin-bottom: 12px;
-    }
-
-    .location-options-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-    }
-
-    .location-opt-btn {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 10px 8px;
-      border-radius: 5px;
-      border: 1px solid var(--line);
-      background-color: var(--paper);
-      color: var(--muted);
-      cursor: pointer;
-      font-family: inherit;
-      transition: all 0.2s ease;
-      min-height: 68px;
-    }
-
-    .location-opt-btn:hover {
-      background-color: rgba(239, 231, 210, 0.6);
-    }
-
-    .location-opt-btn.active {
-      background-color: var(--paper-2);
-      border: 2px solid var(--jade-deep);
-      color: var(--ink);
-      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
-    }
-
-    .location-opt-label {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.8125rem;
-      font-weight: 600;
-      margin-bottom: 4px;
-    }
-
-    .location-opt-btn.active .location-opt-label {
-      font-weight: 700;
-      color: var(--ink);
-    }
-
-    .location-opt-price {
-      font-size: 0.8125rem;
-      font-weight: 700;
-      padding: 2px 8px;
-      border-radius: 3px;
-      background-color: var(--paper-2);
-      color: var(--muted);
-    }
-
-    .location-opt-btn.active .location-opt-price {
-      background-color: var(--jade-deep);
-      color: var(--paper);
-    }
-
     .price-box {
       text-align: center;
       padding: 24px 0;
@@ -2205,38 +2129,16 @@
             </li>
           </ul>
 
-          <!-- Onde você mora? Selector -->
-          <div class="location-selector-wrap">
-            <div class="location-selector-title">Onde você mora?</div>
-            <div class="location-options-grid">
-              <button type="button" class="location-opt-btn active" id="btn-loc-br" onclick="setCheckoutCountry('BR')">
-                <div class="location-opt-label">
-                  <span>🇧🇷</span>
-                  <span>Moro no Brasil</span>
-                </div>
-                <span class="location-opt-price">R$ 17,00</span>
-              </button>
-
-              <button type="button" class="location-opt-btn" id="btn-loc-intl" onclick="setCheckoutCountry('INTL')">
-                <div class="location-opt-label">
-                  <span>🌎</span>
-                  <span>Moro fora do Brasil</span>
-                </div>
-                <span class="location-opt-price">US$ 7</span>
-              </button>
-            </div>
-          </div>
-
           <div class="price-box">
-            <div class="price-old" id="offer-price-old">De R$ 197</div>
+            <div class="price-old">De R$ 197</div>
             <div class="price-current-row">
               <span class="prefix">Por apenas</span>
-              <span class="price-val" id="offer-price-val">R$ 17,00</span>
+              <span class="price-val">R$ 37,00</span>
             </div>
-            <div class="price-note" id="offer-price-note">Pagamento único · PIX ou cartão</div>
+            <div class="price-note">Pagamento único · Pix, cartão ou boleto</div>
           </div>
 
-          <a href="https://pay.kiwify.com.br/YfrIDx2" target="_blank" rel="noopener noreferrer" class="btn-cta btn-offer pulse-glow" id="main-offer-cta">
+          <a href="https://pay.kiwify.com.br/YfrIDx2" target="_blank" rel="noopener noreferrer" class="btn-cta btn-offer pulse-glow">
             Quero as 100 receitas agora →
           </a>
 
@@ -2352,9 +2254,9 @@
     <div class="container">
       <div class="final-cta-inner reveal">
         <h2>Se você chegou até aqui, vale a pena tentar.</h2>
-        <p>Por <strong id="final-cta-price">R$ 17,00</strong> você leva 100 receitas construídas ao longo de gerações — com dose certa, modo de preparo e contraindicações claras. Se funcionar pra você, é uma rotina pra vida toda. Se não funcionar, você tem 7 dias pra pedir de volta.</p>
+        <p>Por <strong>R$ 37,00</strong> você leva 100 receitas construídas ao longo de gerações — com dose certa, modo de preparo e contraindicações claras. Se funcionar pra você, é uma rotina pra vida toda. Se não funcionar, você tem 7 dias pra pedir de volta.</p>
         
-        <a href="https://pay.kiwify.com.br/YfrIDx2" target="_blank" rel="noopener noreferrer" class="btn-cta final-cta-btn pulse-glow" id="final-cta-btn">
+        <a href="https://pay.kiwify.com.br/YfrIDx2" target="_blank" rel="noopener noreferrer" class="btn-cta final-cta-btn pulse-glow">
           Quero as 100 receitas da Mestra Lin →
         </a>
 
@@ -2390,10 +2292,10 @@
   <div class="sticky-bar" id="sticky-bar">
     <div class="sticky-bar-inner">
       <div class="sticky-bar-left">
-        <span class="sticky-price" id="sticky-price">R$ 17,00</span>
+        <span class="sticky-price">R$ 37,00</span>
         <span class="sticky-desc">100 receitas + 3 bônus · Acesso imediato</span>
       </div>
-      <a href="https://pay.kiwify.com.br/YfrIDx2" target="_blank" rel="noopener noreferrer" class="btn-cta sticky-btn" id="sticky-btn">
+      <a href="https://pay.kiwify.com.br/YfrIDx2" target="_blank" rel="noopener noreferrer" class="btn-cta sticky-btn">
         Comprar
       </a>
     </div>
@@ -2501,116 +2403,7 @@
 
       setInterval(updateCountdown, 1000);
 
-      /* 5. MULTI-CURRENCY & LOCATION DETECTION */
-      const CHECKOUT_URL_BR = "https://pay.kiwify.com.br/YfrIDx2";
-      const CHECKOUT_URL_INTL = "https://pay.kiwify.com/EQ6asit";
-      let currentCountry = 'BR';
-
-      window.setCheckoutCountry = function(country, isManual = true) {
-        currentCountry = country;
-        if (isManual) {
-          try {
-            sessionStorage.setItem('mestra_lin_country_pref', country);
-          } catch(e) {}
-        }
-
-        const btnBr = document.getElementById('btn-loc-br');
-        const btnIntl = document.getElementById('btn-loc-intl');
-        const priceOld = document.getElementById('offer-price-old');
-        const priceVal = document.getElementById('offer-price-val');
-        const priceNote = document.getElementById('offer-price-note');
-        const mainCta = document.getElementById('main-offer-cta');
-        const finalPrice = document.getElementById('final-cta-price');
-        const finalBtn = document.getElementById('final-cta-btn');
-        const stickyPrice = document.getElementById('sticky-price');
-        const stickyBtn = document.getElementById('sticky-btn');
-
-        if (country === 'BR') {
-          if (btnBr) btnBr.classList.add('active');
-          if (btnIntl) btnIntl.classList.remove('active');
-          if (priceOld) priceOld.textContent = 'De R$ 197';
-          if (priceVal) priceVal.textContent = 'R$ 17,00';
-          if (priceNote) priceNote.textContent = 'Pagamento único · PIX ou cartão';
-          if (mainCta) {
-            mainCta.href = CHECKOUT_URL_BR;
-            mainCta.textContent = 'QUERO ACESSAR AGORA →';
-          }
-          if (finalPrice) finalPrice.textContent = 'R$ 17,00';
-          if (finalBtn) {
-            finalBtn.href = CHECKOUT_URL_BR;
-            finalBtn.textContent = 'Quero as 100 receitas da Mestra Lin →';
-          }
-          if (stickyPrice) stickyPrice.textContent = 'R$ 17,00';
-          if (stickyBtn) {
-            stickyBtn.href = CHECKOUT_URL_BR;
-            stickyBtn.textContent = 'Comprar';
-          }
-        } else {
-          if (btnBr) btnBr.classList.remove('active');
-          if (btnIntl) btnIntl.classList.add('active');
-          if (priceOld) priceOld.textContent = 'De US$ 37';
-          if (priceVal) priceVal.textContent = 'US$ 7';
-          if (priceNote) priceNote.textContent = 'Pagamento internacional seguro · Cartão de crédito';
-          if (mainCta) {
-            mainCta.href = CHECKOUT_URL_INTL;
-            mainCta.textContent = 'ACESSAR POR US$7 →';
-          }
-          if (finalPrice) finalPrice.textContent = 'US$ 7';
-          if (finalBtn) {
-            finalBtn.href = CHECKOUT_URL_INTL;
-            finalBtn.textContent = 'ACESSAR POR US$7 →';
-          }
-          if (stickyPrice) stickyPrice.textContent = 'US$ 7';
-          if (stickyBtn) {
-            stickyBtn.href = CHECKOUT_URL_INTL;
-            stickyBtn.textContent = 'Acessar';
-          }
-        }
-      };
-
-      // Automatic Detection via Timezone (Instant) & Geo-IP
-      function initLocation() {
-        try {
-          const saved = sessionStorage.getItem('mestra_lin_country_pref');
-          if (saved === 'BR' || saved === 'INTL') {
-            window.setCheckoutCountry(saved, false);
-            return;
-          }
-        } catch(e) {}
-
-        const brazilTimezones = [
-          'America/Sao_Paulo', 'America/Fortaleza', 'America/Bahia', 'America/Belem',
-          'America/Recife', 'America/Manaus', 'America/Cuiaba', 'America/Porto_Velho',
-          'America/Boa_Vista', 'America/Rio_Branco', 'America/Campo_Grande', 'America/Maceio',
-          'America/Noronha', 'America/Santarem', 'America/Araguaina', 'America/Eirunepe'
-        ];
-
-        try {
-          const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
-          if (tz) {
-            if (!brazilTimezones.includes(tz) && !tz.startsWith('Brazil/')) {
-              window.setCheckoutCountry('INTL', false);
-            }
-          }
-        } catch(e) {}
-
-        // Secondary async IP confirmation
-        fetch('https://api.country.is/')
-          .then(res => res.json())
-          .then(data => {
-            if (data && data.country) {
-              const saved = sessionStorage.getItem('mestra_lin_country_pref');
-              if (!saved) {
-                window.setCheckoutCountry(data.country === 'BR' ? 'BR' : 'INTL', false);
-              }
-            }
-          })
-          .catch(() => {});
-      }
-
-      initLocation();
-
-      /* 6. SMOOTH SCROLL FOR IN-PAGE ANCHORS */
+      /* 5. SMOOTH SCROLL FOR IN-PAGE ANCHORS */
       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
           const targetId = this.getAttribute('href');
