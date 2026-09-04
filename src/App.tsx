@@ -19,6 +19,7 @@ import { FAQ } from './components/FAQ';
 import { FinalCTA } from './components/FinalCTA';
 import { Footer } from './components/Footer';
 import { StickyBottomBar } from './components/StickyBottomBar';
+import { PurchaseNotification } from './components/PurchaseNotification';
 
 export default function App() {
   useEffect(() => {
@@ -129,6 +130,9 @@ export default function App() {
 
       {/* Sticky Bottom Bar */}
       <StickyBottomBar />
+
+      {/* Live Purchase Social Proof Notification */}
+      <PurchaseNotification />
     </div>
   );
 }

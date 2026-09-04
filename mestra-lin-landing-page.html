@@ -1564,6 +1564,141 @@
         justify-content: space-between;
       }
     }
+
+    /* Purchase Social Proof Toast */
+    .purchase-toast-container {
+      position: fixed;
+      bottom: 80px;
+      left: 14px;
+      z-index: 999;
+      pointer-events: none;
+      max-width: calc(100vw - 28px);
+    }
+    @media (min-width: 641px) {
+      .purchase-toast-container {
+        bottom: 24px;
+        left: 24px;
+        max-width: 360px;
+      }
+    }
+    .purchase-toast {
+      pointer-events: auto;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(252, 250, 245, 0.98);
+      color: #20261F;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid #DCD3BB;
+      box-shadow: 0 10px 25px -5px rgba(29, 58, 50, 0.18), 0 8px 10px -6px rgba(29, 58, 50, 0.1);
+      backdrop-filter: blur(8px);
+      transform: translateY(20px) scale(0.95);
+      opacity: 0;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
+      position: relative;
+    }
+    .purchase-toast.visible {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+    .purchase-toast-img-wrap {
+      position: relative;
+      width: 44px;
+      height: 44px;
+      background: #F0EAE1;
+      border-radius: 8px;
+      border: 1px solid #E5DEC9;
+      padding: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+    .purchase-toast-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    .purchase-toast-check {
+      position: absolute;
+      bottom: -2px;
+      right: -2px;
+      background: #2E7D32;
+      color: #fff;
+      border-radius: 50%;
+      width: 14px;
+      height: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 9px;
+      font-weight: bold;
+    }
+    .purchase-toast-content {
+      flex: 1;
+      min-width: 0;
+      padding-right: 14px;
+    }
+    .purchase-toast-header {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .purchase-toast-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: #20261F;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .purchase-toast-badge {
+      font-size: 9px;
+      font-weight: 600;
+      color: #2E7D32;
+      background: #E8F5E9;
+      padding: 1px 5px;
+      border-radius: 4px;
+      flex-shrink: 0;
+    }
+    .purchase-toast-action {
+      font-size: 11px;
+      color: #333B30;
+      margin-top: 2px;
+      line-height: 1.25;
+    }
+    .purchase-toast-action strong {
+      color: #B23A2E;
+      font-weight: 600;
+    }
+    .purchase-toast-meta {
+      font-size: 10px;
+      color: #6B6350;
+      margin-top: 3px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .purchase-toast-close {
+      position: absolute;
+      top: 6px;
+      right: 6px;
+      background: transparent;
+      border: none;
+      color: #6B6350;
+      cursor: pointer;
+      padding: 4px;
+      line-height: 1;
+      font-size: 14px;
+      border-radius: 4px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .purchase-toast-close:hover {
+      background: #EFE7D2;
+      color: #20261F;
+    }
   </style>
 </head>
 <body>
@@ -2301,6 +2436,29 @@
     </div>
   </div>
 
+  <!-- Live Purchase Social Proof Notification Toast -->
+  <div class="purchase-toast-container" id="purchase-toast-container">
+    <div class="purchase-toast" id="purchase-toast">
+      <div class="purchase-toast-img-wrap">
+        <img src="/images/ebook-mockup.png" onerror="this.onerror=null;this.src='https://i.ibb.co/4w2DdfP6/Chat-GPT-Image-5-de-ago-de-2026-18-11-59.png';" alt="100 Receitas">
+        <div class="purchase-toast-check">&#10003;</div>
+      </div>
+      <div class="purchase-toast-content">
+        <div class="purchase-toast-header">
+          <span class="purchase-toast-name" id="toast-name">Maria Clara S.</span>
+          <span class="purchase-toast-badge">Verificado</span>
+        </div>
+        <div class="purchase-toast-action">
+          Acabou de comprar as <strong>100 Receitas</strong>
+        </div>
+        <div class="purchase-toast-meta">
+          <span id="toast-location">São Paulo, SP</span> · <span id="toast-time">há 2 minutos</span>
+        </div>
+      </div>
+      <button type="button" class="purchase-toast-close" id="toast-close" aria-label="Fechar notificação">&times;</button>
+    </div>
+  </div>
+
   <!-- JAVASCRIPT LOGIC (VANILLA JS, SELF-CONTAINED) -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -2416,6 +2574,87 @@
           }
         });
       });
+
+      /* 6. LIVE PURCHASE NOTIFICATIONS (APPEAR AND DISAPPEAR) */
+      const purchases = [
+        { name: 'Maria Clara S.', location: 'São Paulo, SP', timeAgo: 'há 2 minutos' },
+        { name: 'Juliana M.', location: 'Belo Horizonte, MG', timeAgo: 'há 4 minutos' },
+        { name: 'Roberto C.', location: 'Curitiba, PR', timeAgo: 'há 6 minutos' },
+        { name: 'Ana Paula R.', location: 'Rio de Janeiro, RJ', timeAgo: 'há instantes' },
+        { name: 'Luciana F.', location: 'Porto Alegre, RS', timeAgo: 'há 3 minutos' },
+        { name: 'Carlos Eduardo T.', location: 'Campinas, SP', timeAgo: 'há 8 minutos' },
+        { name: 'Patrícia V.', location: 'Salvador, BA', timeAgo: 'há 5 minutos' },
+        { name: 'Beatriz L.', location: 'Brasília, DF', timeAgo: 'há 2 minutos' },
+        { name: 'Sandra M.', location: 'Florianópolis, SC', timeAgo: 'há 7 minutos' },
+        { name: 'Marcos Vinícius A.', location: 'Goiânia, GO', timeAgo: 'há 11 minutos' },
+        { name: 'Fernanda G.', location: 'Fortaleza, CE', timeAgo: 'há 4 minutos' },
+        { name: 'Cláudia D.', location: 'Santos, SP', timeAgo: 'há 9 minutos' },
+        { name: 'Tereza Cristina H.', location: 'Vitória, ES', timeAgo: 'há 1 minuto' },
+        { name: 'Denise P.', location: 'Recife, PE', timeAgo: 'há 14 minutos' },
+        { name: 'Renata B.', location: 'Ribeirão Preto, SP', timeAgo: 'há 3 minutos' }
+      ];
+
+      const toast = document.getElementById('purchase-toast');
+      const toastName = document.getElementById('toast-name');
+      const toastLocation = document.getElementById('toast-location');
+      const toastTime = document.getElementById('toast-time');
+      const toastClose = document.getElementById('toast-close');
+
+      let lastIndex = -1;
+      let toastDisplayTimer = null;
+      let toastNextTimer = null;
+
+      function showNextToast() {
+        if (!toast) return;
+        let nextIndex;
+        do {
+          nextIndex = Math.floor(Math.random() * purchases.length);
+        } while (nextIndex === lastIndex && purchases.length > 1);
+
+        lastIndex = nextIndex;
+        const item = purchases[nextIndex];
+
+        if (toastName) toastName.textContent = item.name;
+        if (toastLocation) toastLocation.textContent = item.location;
+        if (toastTime) toastTime.textContent = item.timeAgo;
+
+        toast.classList.add('visible');
+
+        toastDisplayTimer = setTimeout(() => {
+          hideToast();
+        }, 5500);
+      }
+
+      function hideToast() {
+        if (!toast) return;
+        toast.classList.remove('visible');
+        const interval = 8000 + Math.floor(Math.random() * 5000);
+        toastNextTimer = setTimeout(showNextToast, interval);
+      }
+
+      if (toastClose) {
+        toastClose.addEventListener('click', (e) => {
+          e.stopPropagation();
+          if (toastDisplayTimer) clearTimeout(toastDisplayTimer);
+          hideToast();
+        });
+      }
+
+      if (toast) {
+        toast.addEventListener('mouseenter', () => {
+          if (toastDisplayTimer) {
+            clearTimeout(toastDisplayTimer);
+            toastDisplayTimer = null;
+          }
+        });
+        toast.addEventListener('mouseleave', () => {
+          if (toast.classList.contains('visible') && !toastDisplayTimer) {
+            toastDisplayTimer = setTimeout(hideToast, 3500);
+          }
+        });
+      }
+
+      setTimeout(showNextToast, 4000);
 
     });
   </script>
