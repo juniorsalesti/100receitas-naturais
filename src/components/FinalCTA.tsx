@@ -11,7 +11,7 @@ export const FinalCTA: React.FC = () => {
         </h2>
 
         <p className="max-w-2xl mx-auto text-sm xs:text-base sm:text-lg text-[#333B30] leading-relaxed mb-6 sm:mb-10 font-normal">
-          Por <strong className="text-[#B23A2E] font-bold">R$ 37,00</strong> você leva 100 receitas construídas ao longo de gerações — com dose certa, modo de preparo e contraindicações claras. Se funcionar pra você, é uma rotina pra vida toda. Se não funcionar, você tem 7 dias pra pedir de volta.
+          Por <strong className="text-[#B23A2E] font-bold">R$ 29,90</strong> você leva 100 receitas construídas ao longo de gerações — com dose certa, modo de preparo e contraindicações claras. Se funcionar pra você, é uma rotina pra vida toda. Se não funcionar, você tem 7 dias pra pedir de volta.
         </p>
 
         <a
