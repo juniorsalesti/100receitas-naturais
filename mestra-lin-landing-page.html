@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>100 Receitas Naturais - Mestra Lin</title>
-  <meta name="description" content="100 receitas tradicionais inspiradas na Medicina Chinesa, reunidas pela Mestra Lin, para você aliviar o inchaço, melhorar a digestão, ganhar disposição e voltar a dormir a noite inteira.">
+  <meta name="description" content="Descubra os segredos da Medicina Chinesa que usavam para cuidar da diabetes, colesterol alto, pressão alta, gordura no fígado, artrite, artrose, enxaqueca, dores nas articulações, problemas nos rins e da saúde das artérias.">
   <meta property="og:title" content="Mestra Lin — 100 Receitas Tradicionais">
-  <meta property="og:description" content="100 receitas tradicionais da Medicina Chinesa para desinchar, melhorar a digestão e dormir a noite toda.">
+  <meta property="og:description" content="Descubra os segredos da Medicina Chinesa que usavam para cuidar da diabetes, colesterol alto, pressão alta, gordura no fígado, artrite, artrose e dores.">
   <meta property="og:type" content="website">
 
-  <!-- Preload Critical LCP Hero Image (Responsive WebP & AVIF) -->
+  <!-- Preload Critical Images (High-performance WebP) -->
   <link
     rel="preload"
     as="image"
@@ -18,6 +18,20 @@
     imagesrcset="/images/mestra-com-o-livro-360.webp 360w, /images/mestra-com-o-livro-480.webp 480w, /images/mestra-com-o-livro-768.webp 768w"
     imagesizes="(max-width: 640px) 340px, (max-width: 1024px) 440px, 480px"
     fetchpriority="high"
+  >
+  <link
+    rel="preload"
+    as="image"
+    type="image/webp"
+    href="/images/ebook-mockup-480.webp"
+    imagesrcset="/images/ebook-mockup-360.webp 360w, /images/ebook-mockup-480.webp 480w"
+    imagesizes="(max-width: 640px) 320px, 420px"
+  >
+  <link
+    rel="preload"
+    as="image"
+    type="image/webp"
+    href="/images/ebook-mockup-thumb.webp"
   >
 
   <!-- Meta Pixel Code -->
@@ -1740,11 +1754,11 @@
         <!-- Left: Copy & CTA -->
         <div class="reveal">
           <h1 class="hero-h1">
-            Seu corpo não está <span class="highlight">errado</span>. Só está sem o cuidado certo.
+            As Receitas Naturais da <span class="highlight">Medicina Chinesa</span>
           </h1>
 
           <p class="hero-sub">
-            100 receitas tradicionais inspiradas na Medicina Chinesa, reunidas pela Mestra Lin, para você aliviar o inchaço, melhorar a digestão, ganhar disposição e voltar a dormir a noite inteira — sem remédio caro e sem depender pra sempre da farmácia.
+            Descubra os segredos da Medicina Chinesa que usavam para cuidar da diabetes, colesterol alto, pressão alta, gordura no fígado, artrite, artrose, enxaqueca, dores nas articulações, problemas nos rins e da saúde das artérias. Conhecimentos antigos reunidos e revelados — tudo isso em um só lugar.
           </p>
 
           <ul class="hero-pains">
@@ -1780,7 +1794,10 @@
         <!-- Right: Teacher photo with badge -->
         <div class="hero-visual">
           <div class="hero-frame">
-            <img src="/images/mestra-com-o-livro.png" onerror="this.onerror=null;this.src='https://i.ibb.co/jk7gVNrZ/mestra-com-o-livro.png';" alt="Mestra Lin com o livro de receitas tradicionais" width="480" height="600">
+            <picture>
+              <source type="image/webp" srcset="/images/mestra-com-o-livro-360.webp 360w, /images/mestra-com-o-livro-480.webp 480w, /images/mestra-com-o-livro-768.webp 768w" sizes="(max-width: 640px) 340px, (max-width: 1024px) 440px, 480px">
+              <img src="/images/mestra-com-o-livro-480.webp" fetchpriority="high" decoding="async" onerror="if(this.parentElement){this.parentElement.querySelectorAll('source').forEach(function(s){s.remove()})};this.onerror=null;this.src='/images/mestra-com-o-livro.png';" alt="Mestra Lin com o livro de receitas tradicionais" width="480" height="600">
+            </picture>
           </div>
 
           <div class="floating-badge">
@@ -2012,7 +2029,10 @@
         <!-- Photo with Seal -->
         <div class="teacher-visual reveal">
           <div class="teacher-frame">
-            <img src="/images/mestra-com-o-livro.png" onerror="this.onerror=null;this.src='https://i.ibb.co/jk7gVNrZ/mestra-com-o-livro.png';" alt="Mestra Lin segurando o livro de receitas tradicionais" width="400" height="500">
+            <picture>
+              <source type="image/webp" srcset="/images/mestra-com-o-livro-360.webp 360w, /images/mestra-com-o-livro-480.webp 480w, /images/mestra-com-o-livro-768.webp 768w" sizes="(max-width: 640px) 280px, 400px">
+              <img src="/images/mestra-com-o-livro-480.webp" decoding="async" onerror="if(this.parentElement){this.parentElement.querySelectorAll('source').forEach(function(s){s.remove()})};this.onerror=null;this.src='/images/mestra-com-o-livro.png';" alt="Mestra Lin segurando o livro de receitas tradicionais" width="400" height="500">
+            </picture>
           </div>
           <div class="seal teacher-seal-badge">林</div>
         </div>
@@ -2235,7 +2255,10 @@
 
       <!-- Product Mockup Image -->
       <div class="product-mockup-wrapper reveal">
-        <img src="/images/ebook-mockup.png" onerror="this.onerror=null;this.src='https://i.ibb.co/4w2DdfP6/Chat-GPT-Image-5-de-ago-de-2026-18-11-59.png';" alt="Mockup do e-book 100 Receitas Tradicionais da Mestra Lin e Bônus" width="420" height="420">
+        <picture>
+          <source type="image/webp" srcset="/images/ebook-mockup-360.webp 360w, /images/ebook-mockup-480.webp 480w" sizes="(max-width: 640px) 320px, 420px">
+          <img src="/images/ebook-mockup-480.webp" decoding="async" onerror="if(this.parentElement){this.parentElement.querySelectorAll('source').forEach(function(s){s.remove()})};this.onerror=null;this.src='/images/ebook-mockup.png';" alt="Mockup do e-book 100 Receitas Tradicionais da Mestra Lin e Bônus" width="420" height="420">
+        </picture>
       </div>
 
       <!-- Pricing Card -->
@@ -2440,7 +2463,7 @@
   <div class="purchase-toast-container" id="purchase-toast-container">
     <div class="purchase-toast" id="purchase-toast">
       <div class="purchase-toast-img-wrap">
-        <img src="/images/ebook-mockup.png" onerror="this.onerror=null;this.src='https://i.ibb.co/4w2DdfP6/Chat-GPT-Image-5-de-ago-de-2026-18-11-59.png';" alt="100 Receitas">
+        <img src="/images/ebook-mockup-thumb.webp" onerror="this.onerror=null;this.src='/images/ebook-mockup-thumb.png';" alt="100 Receitas" width="44" height="44" loading="eager" decoding="sync">
         <div class="purchase-toast-check">&#10003;</div>
       </div>
       <div class="purchase-toast-content">

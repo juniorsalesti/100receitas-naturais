@@ -125,11 +125,15 @@ export const PurchaseNotification: React.FC = () => {
             {/* Book Thumbnail */}
             <div className="relative shrink-0 w-11 h-11 sm:w-12 sm:h-12 bg-[#F0EAE1] rounded-lg border border-[#E5DEC9] p-1 flex items-center justify-center overflow-hidden">
               <img
-                src={IMAGES.productMockup.src}
+                src={IMAGES.thumbnail.src}
                 alt="100 Receitas"
+                width={48}
+                height={48}
+                loading="eager"
+                decoding="sync"
                 className="w-full h-full object-contain filter drop-shadow"
                 onError={(e) => {
-                  (e.currentTarget as HTMLImageElement).src = IMAGES.productMockup.fallback;
+                  (e.currentTarget as HTMLImageElement).src = IMAGES.thumbnail.pngFallback;
                 }}
               />
               <span className="absolute -bottom-0.5 -right-0.5 bg-[#2E7D32] text-white rounded-full p-0.5 shadow">

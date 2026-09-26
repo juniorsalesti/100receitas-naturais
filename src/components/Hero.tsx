@@ -19,13 +19,13 @@ export const Hero: React.FC = () => {
           <div className="lg:col-span-7 flex flex-col justify-center">
             
             {/* H1 Headline */}
-            <h1 className="font-serif-display text-[26px] xs:text-3xl sm:text-4xl md:text-5xl lg:text-[44px] leading-[1.2] sm:leading-[1.18] font-bold text-[#20261F] tracking-tight">
-              Seu corpo não está <span className="italic text-[#B23A2E] font-medium">errado</span>. Só está sem o cuidado certo.
+            <h1 className="font-serif-display text-[28px] xs:text-3xl sm:text-4xl md:text-5xl lg:text-[46px] leading-[1.2] sm:leading-[1.18] font-bold text-[#20261F] tracking-tight">
+              As Receitas Naturais da <span className="italic text-[#B23A2E] font-medium">Medicina Chinesa</span>
             </h1>
 
             {/* Subtitle */}
             <p className="mt-4 sm:mt-6 text-sm xs:text-base sm:text-lg text-[#333B30] leading-relaxed max-w-2xl font-normal">
-              100 receitas tradicionais inspiradas na Medicina Chinesa, reunidas pela Mestra Lin, para você aliviar o inchaço, melhorar a digestão, ganhar disposição e voltar a dormir a noite inteira — sem remédio caro e sem depender pra sempre da farmácia.
+              Descubra os segredos da Medicina Chinesa que usavam para cuidar da diabetes, colesterol alto, pressão alta, gordura no fígado, artrite, artrose, enxaqueca, dores nas articulações, problemas nos rins e da saúde das artérias. Conhecimentos antigos reunidos e revelados — tudo isso em um só lugar.
             </p>
 
             {/* 3 Pain Points */}
@@ -80,16 +80,30 @@ export const Hero: React.FC = () => {
 
               {/* Image Frame */}
               <div className="relative bg-[#EFE7D2] p-2 sm:p-3 rounded-[6px] border border-[#DCD3BB] shadow-xl shadow-black/8 overflow-hidden aspect-[4/5]">
-                <img
-                  src={IMAGES.teacher.src}
-                  alt="Mestra Lin com o livro de receitas tradicionais"
-                  width={IMAGES.teacher.width}
-                  height={IMAGES.teacher.height}
-                  className="w-full h-full object-cover rounded-[4px] aspect-[4/5] filter brightness-[1.01]"
-                  onError={(e) => {
-                    (e.currentTarget as HTMLImageElement).src = IMAGES.teacher.fallback;
-                  }}
-                />
+                <picture>
+                  <source
+                    type="image/webp"
+                    srcSet={IMAGES.teacher.srcsetWebp}
+                    sizes={IMAGES.teacher.sizes}
+                  />
+                  <img
+                    src={IMAGES.teacher.src}
+                    alt="Mestra Lin com o livro de receitas tradicionais"
+                    width={IMAGES.teacher.width}
+                    height={IMAGES.teacher.height}
+                    fetchPriority="high"
+                    decoding="async"
+                    className="w-full h-full object-cover rounded-[4px] aspect-[4/5] filter brightness-[1.01]"
+                    onError={(e) => {
+                      const target = e.currentTarget as HTMLImageElement;
+                      const parent = target.parentElement;
+                      if (parent && parent.tagName.toLowerCase() === 'picture') {
+                        parent.querySelectorAll('source').forEach((s) => s.remove());
+                      }
+                      target.src = IMAGES.teacher.fallback;
+                    }}
+                  />
+                </picture>
               </div>
 
               {/* Overlapping Floating Badge */}
