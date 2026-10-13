@@ -53,7 +53,7 @@ export const StickyBottomBar: React.FC = () => {
         {/* Left Side: Price & summary */}
         <div className="flex items-baseline gap-1.5 sm:gap-3 truncate min-w-0">
           <span className="font-serif-display font-bold text-lg sm:text-2xl text-[#FDFBF7] tracking-tight shrink-0">
-            R$ 29,90
+            R$ 19,90
           </span>
           <span className="text-[11px] sm:text-sm text-[#DCD3BB]/85 truncate hidden xs:inline">
             100 receitas + 3 bônus

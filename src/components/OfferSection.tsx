@@ -101,7 +101,7 @@ export const OfferSection: React.FC = () => {
               <div className="mt-1 flex items-baseline justify-center gap-2">
                 <span className="text-xs sm:text-sm font-semibold uppercase text-[#6B6350]">Por apenas</span>
                 <span className="font-serif-display text-4xl sm:text-5xl md:text-6xl font-bold text-[#B23A2E] tracking-tight">
-                  R$ 29,90
+                  R$ 19,90
                 </span>
               </div>
 
