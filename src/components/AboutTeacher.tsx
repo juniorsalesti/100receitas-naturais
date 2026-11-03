@@ -11,29 +11,20 @@ export const AboutTeacher: React.FC = () => {
           <div className="lg:col-span-5 flex justify-center">
             <div className="relative w-full max-w-[280px] xs:max-w-xs sm:max-w-sm">
               <div className="relative bg-[#F6F1E4] p-2 sm:p-3 rounded-[4px] border border-[#DCD3BB] shadow-xl shadow-black/8 overflow-hidden aspect-[4/5]">
-                <picture>
-                  <source
-                    type="image/webp"
-                    srcSet={IMAGES.teacher.srcsetWebp}
-                    sizes={IMAGES.teacher.sizes}
-                  />
-                  <img
-                    src={IMAGES.teacher.src}
-                    alt="Mestra Lin segurando o livro de receitas tradicionais"
-                    width={400}
-                    height={500}
-                    decoding="async"
-                    className="w-full h-full object-cover rounded-[3px] aspect-[4/5]"
-                    onError={(e) => {
-                      const target = e.currentTarget as HTMLImageElement;
-                      const parent = target.parentElement;
-                      if (parent && parent.tagName.toLowerCase() === 'picture') {
-                        parent.querySelectorAll('source').forEach((s) => s.remove());
-                      }
-                      target.src = IMAGES.teacher.fallback;
-                    }}
-                  />
-                </picture>
+                <img
+                  src={IMAGES.teacher.src}
+                  alt="Mestra Lin segurando o livro de receitas tradicionais"
+                  width={400}
+                  height={500}
+                  decoding="async"
+                  className="w-full h-full object-cover rounded-[3px] aspect-[4/5]"
+                  onError={(e) => {
+                    const target = e.currentTarget as HTMLImageElement;
+                    if (target.src !== IMAGES.teacher.local) {
+                      target.src = IMAGES.teacher.local;
+                    }
+                  }}
+                />
               </div>
 
               {/* Red Seal stamp in bottom right corner */}

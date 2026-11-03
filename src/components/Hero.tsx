@@ -1,15 +1,7 @@
 import React, { useState } from 'react';
-import { IMAGES } from '../constants';
+import { CHECKOUT_URL, IMAGES } from '../constants';
 
 export const Hero: React.FC = () => {
-  const scrollToOffer = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    const element = document.getElementById('oferta');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <section className="relative overflow-hidden pt-6 sm:pt-14 pb-16 sm:pb-20">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
@@ -27,6 +19,25 @@ export const Hero: React.FC = () => {
             <p className="mt-4 sm:mt-6 text-sm xs:text-base sm:text-lg text-[#333B30] leading-relaxed max-w-2xl font-normal">
               Descubra os segredos da Medicina Chinesa que usavam para cuidar da diabetes, colesterol alto, pressão alta, gordura no fígado, artrite, artrose, enxaqueca, dores nas articulações, problemas nos rins e da saúde das artérias. Conhecimentos antigos reunidos e revelados — tudo isso em um só lugar.
             </p>
+
+            {/* Strategic Mobile Video (YouTube Short) */}
+            <div className="mt-5 sm:mt-7 w-full flex flex-col items-center sm:items-start">
+              <div className="w-full max-w-[320px] xs:max-w-[340px] sm:max-w-[360px] bg-[#20261F] p-1.5 xs:p-2 rounded-xl shadow-xl shadow-black/15 border border-[#DCD3BB]">
+                <div className="relative w-full aspect-[9/16] rounded-lg overflow-hidden bg-black">
+                  <iframe
+                    className="w-full h-full border-0"
+                    src="https://www.youtube-nocookie.com/embed/iSzpqjs0fgU?autoplay=1&mute=1&playsinline=1&rel=0&modestbranding=1&loop=1&playlist=iSzpqjs0fgU"
+                    title="Vídeo de Apresentação Mestra Lin"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                  />
+                </div>
+              </div>
+              <p className="mt-2 text-xs text-[#6B6350] flex items-center gap-1.5 font-medium">
+                <span className="inline-block w-2 h-2 rounded-full bg-[#B23A2E] animate-pulse"></span>
+                Toque no vídeo para ativar o som
+              </p>
+            </div>
 
             {/* 3 Pain Points */}
             <ul className="mt-5 sm:mt-8 space-y-3 sm:space-y-4">
@@ -47,8 +58,9 @@ export const Hero: React.FC = () => {
             {/* Primary CTA */}
             <div className="mt-6 sm:mt-10 flex flex-col sm:items-start">
               <a
-                href="#oferta"
-                onClick={scrollToOffer}
+                href={CHECKOUT_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="cta-pulse w-full sm:w-auto min-h-[52px] inline-flex items-center justify-center text-center px-6 sm:px-8 py-3.5 sm:py-4.5 text-sm xs:text-base sm:text-lg font-bold text-[#FDFBF7] bg-[#B23A2E] hover:bg-[#8C2C22] rounded-[4px] transition-all duration-200 shadow-md shadow-[#B23A2E]/25 active:scale-[0.98]"
               >
                 Quero as 100 receitas da Mestra Lin →
@@ -80,30 +92,21 @@ export const Hero: React.FC = () => {
 
               {/* Image Frame */}
               <div className="relative bg-[#EFE7D2] p-2 sm:p-3 rounded-[6px] border border-[#DCD3BB] shadow-xl shadow-black/8 overflow-hidden aspect-[4/5]">
-                <picture>
-                  <source
-                    type="image/webp"
-                    srcSet={IMAGES.teacher.srcsetWebp}
-                    sizes={IMAGES.teacher.sizes}
-                  />
-                  <img
-                    src={IMAGES.teacher.src}
-                    alt="Mestra Lin com o livro de receitas tradicionais"
-                    width={IMAGES.teacher.width}
-                    height={IMAGES.teacher.height}
-                    fetchPriority="high"
-                    decoding="async"
-                    className="w-full h-full object-cover rounded-[4px] aspect-[4/5] filter brightness-[1.01]"
-                    onError={(e) => {
-                      const target = e.currentTarget as HTMLImageElement;
-                      const parent = target.parentElement;
-                      if (parent && parent.tagName.toLowerCase() === 'picture') {
-                        parent.querySelectorAll('source').forEach((s) => s.remove());
-                      }
-                      target.src = IMAGES.teacher.fallback;
-                    }}
-                  />
-                </picture>
+                <img
+                  src={IMAGES.teacher.src}
+                  alt="Mestra Lin com o livro de receitas tradicionais"
+                  width={IMAGES.teacher.width}
+                  height={IMAGES.teacher.height}
+                  fetchPriority="high"
+                  decoding="async"
+                  className="w-full h-full object-cover rounded-[4px] aspect-[4/5] filter brightness-[1.01]"
+                  onError={(e) => {
+                    const target = e.currentTarget as HTMLImageElement;
+                    if (target.src !== IMAGES.teacher.local) {
+                      target.src = IMAGES.teacher.local;
+                    }
+                  }}
+                />
               </div>
 
               {/* Overlapping Floating Badge */}
