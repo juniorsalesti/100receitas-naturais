@@ -26,17 +26,13 @@ export const Hero: React.FC = () => {
                 <div className="relative w-full aspect-[9/16] rounded-lg overflow-hidden bg-black">
                   <iframe
                     className="w-full h-full border-0"
-                    src="https://www.youtube-nocookie.com/embed/iSzpqjs0fgU?autoplay=1&mute=1&playsinline=1&rel=0&modestbranding=1&loop=1&playlist=iSzpqjs0fgU"
+                    src="https://www.youtube.com/embed/iSzpqjs0fgU?autoplay=1&mute=0&controls=1&playsinline=1&rel=0&modestbranding=1&loop=1&playlist=iSzpqjs0fgU&enablejsapi=1"
                     title="Vídeo de Apresentação Mestra Lin"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowFullScreen
                   />
                 </div>
               </div>
-              <p className="mt-2 text-xs text-[#6B6350] flex items-center gap-1.5 font-medium">
-                <span className="inline-block w-2 h-2 rounded-full bg-[#B23A2E] animate-pulse"></span>
-                Toque no vídeo para ativar o som
-              </p>
             </div>
 
             {/* 3 Pain Points */}
