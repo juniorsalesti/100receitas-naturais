@@ -20,21 +20,6 @@ export const Hero: React.FC = () => {
               Descubra os segredos da Medicina Chinesa que usavam para cuidar da diabetes, colesterol alto, pressão alta, gordura no fígado, artrite, artrose, enxaqueca, dores nas articulações, problemas nos rins e da saúde das artérias. Conhecimentos antigos reunidos e revelados — tudo isso em um só lugar.
             </p>
 
-            {/* Strategic Mobile Video (YouTube Short) */}
-            <div className="mt-5 sm:mt-7 w-full flex flex-col items-center sm:items-start">
-              <div className="w-full max-w-[320px] xs:max-w-[340px] sm:max-w-[360px] bg-[#20261F] p-1.5 xs:p-2 rounded-xl shadow-xl shadow-black/15 border border-[#DCD3BB]">
-                <div className="relative w-full aspect-[9/16] rounded-lg overflow-hidden bg-black">
-                  <iframe
-                    className="w-full h-full border-0"
-                    src="https://www.youtube.com/embed/iSzpqjs0fgU?autoplay=1&mute=0&controls=1&playsinline=1&rel=0&modestbranding=1&loop=1&playlist=iSzpqjs0fgU&enablejsapi=1"
-                    title="Vídeo de Apresentação Mestra Lin"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowFullScreen
-                  />
-                </div>
-              </div>
-            </div>
-
             {/* 3 Pain Points */}
             <ul className="mt-5 sm:mt-8 space-y-3 sm:space-y-4">
               <li className="flex items-start gap-2.5 sm:gap-3 text-sm sm:text-base text-[#20261F]">
